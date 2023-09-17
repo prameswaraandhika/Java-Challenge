@@ -1,4 +1,4 @@
-package org.example;
+package org.example.challenge1;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -10,9 +10,12 @@ import java.util.Scanner;
 
 public class Main {
 //    List untuk menuMakanan
-    static String line1 = "================================================================";
-    static String line2 = "---------------------------------------------------------------+\n";
-    static String formatPesanan = "%-14s %5d %15s\n";
+    static final String line1 = "================================================================";
+    static final String line2 = "---------------------------------------------------------------+\n";
+    static final String inputArrow = "\n=> ";
+    static final String formatPesanan = "%-14s %5d %15s\n";
+
+    static final Scanner scan = new Scanner(System.in);
     static final List<MenuMakanan> menuMakanan = List.of(
                 new MenuMakanan(1,"Nasi Goreng", 15000),
                 new MenuMakanan(2,"Mie Goreng", 13000),
@@ -26,7 +29,6 @@ public class Main {
     }
 
     private static void menuUtamaTampilan() {
-
 //        Buat tampilan cli yang akan di ulang hingga selama user tidak memilih keluar dari aplikasi dan tidak menyelesaikan pembayaran
 //        karna switch 1 sd 5 adalah fitur memesan makanan, jadi saya buat satu scope
 //        ketika user memilih keluar dari aplikasi maka loop akan berhenti dan program akan keluar
@@ -40,15 +42,18 @@ public class Main {
             }
             System.out.println("99. Pesan dan Bayar");
             System.out.println("0. Keluar aplikasi");
-            System.out.print("\n=> ");
-            byte pilihan = new Scanner(System.in).nextByte();
-            switch (pilihan) {
-                case 1, 2, 3, 4, 5 -> konfirmasiTampilan(pilihan);
-                case 99 -> pembayaranTampilan();
-                case 0 ->
-                        System.exit(0);
-                default -> System.out.println("Input tidak dikenal");
-            }
+            System.out.print(inputArrow);
+            if (scan.hasNextByte()){
+                byte pilihan = scan.nextByte();
+                switch (pilihan) {
+                    case 1, 2, 3, 4, 5 -> konfirmasiPesananTampilan(pilihan);
+                    case 99 -> pembayaranTampilan();
+                    case 0 ->
+                            System.exit(0);
+                    default -> System.out.println("Tolong input dengan benar");
+                }
+            } else {
+                System.out.println("Tolong input dengan benar");            }
         }
     }
 
@@ -74,9 +79,10 @@ public class Main {
             case 1 -> cetakInvoice(jumlahTotal, jumlahHarga);
             case 2 -> System.out.println("Kembali ke menu Utama");
             case 0 -> System.exit(0);
-            default -> System.out.println("Input tidak dikenal");
+            default -> System.out.println("Tolong input dengan benar");
         }
     }
+
 
     private static void cetakInvoice(int jumlahTotal, long jumlahHarga) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("invoice_pembayaran.txt"))) {
@@ -92,7 +98,7 @@ public class Main {
             writer.write(String.format("%-14s %5d %15s\n\n", "total", jumlahTotal, rupiahKonversi(jumlahHarga)));
             writer.write("Pembayaran : Binar Cash\n");
             writer.write(line1);
-            writer.write("\nSimpan struk ini sebagai \n");
+            writer.write("\nSimpan struk ini sebagai\n");
             writer.write("Bukti pembayaran\n");
             writer.write(line1);
         } catch (IOException exception) {
@@ -100,7 +106,7 @@ public class Main {
         }
     }
 
-    private static void konfirmasiTampilan(byte pilihan) {
+    private static void konfirmasiPesananTampilan(byte pilihan) {
         System.out.println(line1);
         System.out.println("Berapa pesanan anda");
         System.out.println(line1);
