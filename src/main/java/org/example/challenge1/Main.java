@@ -1,12 +1,12 @@
 package org.example.challenge1;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+
 
 public class Main {
 //    List untuk menuMakanan
@@ -25,7 +25,7 @@ public class Main {
     static List<Pesanan> menuPesanan = new ArrayList<>();
 
     public static void main(String[] args) {
-        menuUtamaTampilan();
+
     }
 
     private static void menuUtamaTampilan() {
@@ -106,35 +106,35 @@ public class Main {
         }
     }
 
-    private static void konfirmasiPesananTampilan(byte pilihan) {
-        System.out.println(line1);
-        System.out.println("Berapa pesanan anda");
-        System.out.println(line1);
-        System.out.println(" " + menuMakanan.get(pilihan-1).nama() + "  |  " + menuMakanan.get(pilihan -1));
-        System.out.println("Input 0 untuk kembali");
-        System.out.print("\nqty => ");
-        String nama = menuMakanan.get(pilihan - 1 ).nama();
-        byte jumlah = new Scanner(System.in).nextByte();
-        long harga = menuMakanan.get(pilihan -1).harga() * jumlah;
-        for (Pesanan pesanan1: menuPesanan) {
+        public static void konfirmasiPesananTampilan(byte pilihan){
+            System.out.println(line1);
+            System.out.println("Berapa pesanan anda");
+            System.out.println(line1);
+            System.out.println(" " + menuMakanan.get(pilihan - 1).nama() + "  |  " + menuMakanan.get(pilihan - 1));
+            System.out.println("Input 0 untuk kembali");
+            System.out.print("\nqty => ");
+            String nama = menuMakanan.get(pilihan - 1).nama();
+            byte jumlah = new Scanner(System.in).nextByte();
+            long harga = menuMakanan.get(pilihan - 1).harga() * jumlah;
+            for (Pesanan pesanan1 : menuPesanan) {
 //            Membandingkan nama pesanan saat ini dan data sebelumnya
 //            Jika ada nama yang sama dari list dengan nama saat ini maka,
 //            ambil harga dan jumlah data yang sama, dan sum ke harga dan jumlah pesanan saat ini
 //            setelah itu remove
-            if (pesanan1.nama().equalsIgnoreCase(nama)){
-                jumlah += pesanan1.jumlah();
-                harga += pesanan1.harga();
-                menuPesanan.remove(pesanan1);
-                break;
+                if (pesanan1.nama().equalsIgnoreCase(nama)) {
+                    jumlah += pesanan1.jumlah();
+                    harga += pesanan1.harga();
+                    menuPesanan.remove(pesanan1);
+                    break;
+                }
             }
-        }
 //        lalu data akan ditambahkan ulang, untuk mencegah duplikasi menu pada listPesanan
-        menuPesanan.add(new Pesanan(nama, jumlah, harga));
-    }
+            menuPesanan.add(new Pesanan(nama, jumlah, harga));
+        }
 
-    private static String rupiahKonversi(long harga){
+
+    public static String rupiahKonversi(long harga){
         DecimalFormat pattern = new DecimalFormat("#.###");
         return pattern.format(harga);
     }
-
 }
