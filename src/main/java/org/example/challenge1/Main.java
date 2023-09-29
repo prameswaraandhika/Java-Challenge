@@ -117,10 +117,6 @@ public class Main {
             byte jumlah = new Scanner(System.in).nextByte();
             long harga = menuMakanan.get(pilihan - 1).harga() * jumlah;
             for (Pesanan pesanan1 : menuPesanan) {
-//            Membandingkan nama pesanan saat ini dan data sebelumnya
-//            Jika ada nama yang sama dari list dengan nama saat ini maka,
-//            ambil harga dan jumlah data yang sama, dan sum ke harga dan jumlah pesanan saat ini
-//            setelah itu remove
                 if (pesanan1.nama().equalsIgnoreCase(nama)) {
                     jumlah += pesanan1.jumlah();
                     harga += pesanan1.harga();

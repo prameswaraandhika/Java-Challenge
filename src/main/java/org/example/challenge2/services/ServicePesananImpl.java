@@ -20,16 +20,17 @@ public class ServicePesananImpl implements ServicePesanan {
 
     @Override
     public void savePesanan(Pesanan pesanan) {
+        pesanan.setHarga(pesanan.getHarga() * pesanan.getJumlah());
         for (Pesanan object: Databases.listPesanan) {
             if (object.getNama().equalsIgnoreCase(pesanan.getNama())){
-                pesanan.setJumlah(object.getJumlah());
-                pesanan.setHarga(object.getHarga());
+                pesanan.setJumlah(object.getJumlah() + pesanan.getJumlah());
+                pesanan.setHarga(object.getHarga() + pesanan.getHarga());
                 Databases.listPesanan.remove(object);
                 break;
             }
         }
-        pesanan.setHarga(pesanan.getHarga() * pesanan.getJumlah());
         Databases.listPesanan.add(pesanan);
+        System.out.println(Databases.listPesanan);
     }
 
     @Override

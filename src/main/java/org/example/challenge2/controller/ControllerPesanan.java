@@ -56,7 +56,6 @@ public class ControllerPesanan {
                 }
                 default ->{
                     konfirmasiInputTidakDikenalTampilan();
-                System.out.println("masuk sini");
                 }
             }
         } catch (InputMismatchException ignored){
@@ -69,11 +68,7 @@ public class ControllerPesanan {
         int jumlah = Utils.scan.nextByte();
         long harga = getHargaPesanan();
         String namaPesanan = getNamaPesanan();
-        if (jumlah > 0){
-            servicePesanan.savePesanan(new Pesanan(namaPesanan, jumlah, harga));
-        } else {
-            System.out.println("MINIMAL 1 JUMLAH PESANAN YA");
-        }
+        servicePesanan.savePesanan(new Pesanan(namaPesanan, jumlah, harga));
         }catch (InputMismatchException ignored){
             konfirmasiInputTidakDikenalTampilan();
         }

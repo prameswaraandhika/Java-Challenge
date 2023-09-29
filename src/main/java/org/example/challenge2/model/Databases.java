@@ -1,5 +1,7 @@
 package org.example.challenge2.model;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 import org.example.challenge2.model.Pesanan;
 
 import java.util.ArrayList;
@@ -12,5 +14,6 @@ public class Databases {
             new MenuMakanan(3,"Nasi + Ayam", 18000),
             new MenuMakanan(4,"Es Teh Manis", 3000),
             new MenuMakanan(5,"Es Jeruk", 5000));
+
     public static List<Pesanan> listPesanan = new ArrayList<Pesanan>();
 }

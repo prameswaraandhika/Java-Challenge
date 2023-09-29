@@ -13,7 +13,6 @@ import static org.example.challenge2.model.Databases.listPesanan;
 
 public class View {
 
-
     private static ControllerPesanan controllerPesanan = new ControllerPesanan();
 
 
@@ -37,7 +36,7 @@ public class View {
     }
 
     public static void pembayaranTampilan() {
-        if (!listPesanan.isEmpty()) {
+        if (pesananDitemukan()){
             System.out.println(Utils.LINE_EQUALS);
             System.out.println("Konfirmasi & Pembayaran");
             System.out.println(Utils.LINE_EQUALS);
@@ -63,6 +62,10 @@ public class View {
             System.out.println(Utils.LINE_EQUALS);
             System.out.println("\n\n ");
         }
+    }
+
+    private static boolean pesananDitemukan() {
+        return !listPesanan.isEmpty();
     }
 
     public static void konfirmasiInputTidakDikenalTampilan() {
