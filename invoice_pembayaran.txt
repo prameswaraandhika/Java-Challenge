@@ -6,12 +6,12 @@ di BinarFud
 
 Dibawah ini pesanan anda
 
-Nasi Goreng        6          90,000
+Mie Goreng         3           39000
 ---------------------------------------------------------------+
-total              6          90,000
+total              3           39000
 
 Pembayaran : Binar Cash
 ================================================================
-Simpan struk ini sebagai 
+Simpan struk ini sebagai
 Bukti pembayaran
-================================================================
+---------------------------------------------------------------+

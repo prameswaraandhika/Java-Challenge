@@ -84,7 +84,7 @@ public class Main {
     }
 
 
-    private static void cetakInvoice(int jumlahTotal, long jumlahHarga) {
+    public static void cetakInvoice(int jumlahTotal, long jumlahHarga) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("invoice_pembayaran.txt"))) {
             writer.write(line1);
             writer.write("\nBinarFud\n");

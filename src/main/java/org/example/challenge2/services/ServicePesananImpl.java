@@ -6,7 +6,7 @@ import org.example.challenge2.model.Databases;
 
 import java.util.List;
 
-public class ServiceBinarFudImpl implements ServiceBinarFud {
+public class ServicePesananImpl implements ServicePesanan {
 
     @Override
     public List<MenuMakanan> findAllMenus() {

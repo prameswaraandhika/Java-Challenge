@@ -5,7 +5,7 @@ import org.example.challenge2.model.Pesanan;
 
 import java.util.List;
 
-public interface ServiceBinarFud {
+public interface ServicePesanan {
 
     List<MenuMakanan> findAllMenus();
 
