@@ -35,8 +35,4 @@ public class ServiceProductImpl implements ServiceProduct{
 		return products;
 	}
 
-	public static void main(String[] args) {
-		ServiceProductImpl serviceProduct = new ServiceProductImpl();
-		serviceProduct.findAll();
-	}
 }
