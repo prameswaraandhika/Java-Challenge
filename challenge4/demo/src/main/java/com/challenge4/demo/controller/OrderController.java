@@ -8,6 +8,7 @@ import com.challenge4.demo.model.Product;
 import com.challenge4.demo.service.OrderService;
 import com.challenge4.demo.sql.InfoUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import javax.swing.*;
@@ -17,7 +18,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
-@Controller
+@Component
 public class OrderController {
 
 	OrderService orderService;

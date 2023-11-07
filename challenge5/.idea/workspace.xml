@@ -5,20 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a00babcf-96b9-45bb-9155-12985f0ac28b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/Challenge5Application.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/MerchantController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/OrderController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/ProductController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/UserController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/exception/MerchantNotFound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Merchant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/OrderDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Product.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/User.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/dtos/MerchantCreateDto.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/dtos/MerchantUpdateStatusDto.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/repository/MerchantRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/MerchantService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/challenge5/app/Challenge5ApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/Binarfood.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />

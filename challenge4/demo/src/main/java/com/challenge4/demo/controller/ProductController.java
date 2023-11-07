@@ -3,11 +3,12 @@ package com.challenge4.demo.controller;
 import com.challenge4.demo.model.Product;
 import com.challenge4.demo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
-@Controller
+@Component
 public class ProductController {
 
 	ProductService serviceProduct;

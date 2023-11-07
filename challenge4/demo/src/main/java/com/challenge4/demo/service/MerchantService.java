@@ -1,6 +1,7 @@
 package com.challenge4.demo.service;
 
 import com.challenge4.demo.model.Merchant;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;

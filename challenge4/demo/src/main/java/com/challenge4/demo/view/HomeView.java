@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.util.Scanner;
 
 public class HomeView {
-    public static void welcome(){
+    public static void HomeMenu(){
         System.out.println("Pilih fitur");
         System.out.println("1. Kelola Merchant");
         System.out.println("2. Kelola Product");

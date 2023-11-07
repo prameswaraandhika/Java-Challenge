@@ -1,10 +1,7 @@
 package com.challenge4.demo.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -25,4 +22,11 @@ public class Merchant {
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "merchant")
 	private List<Product> products;
+
+	@Override
+	public String toString() {
+		return " merchantName='" + merchantName + '\'' +
+				", merchantLocation='" + merchantLocation + '\'' +
+				", isOpen=" + isOpen;
+	}
 }
