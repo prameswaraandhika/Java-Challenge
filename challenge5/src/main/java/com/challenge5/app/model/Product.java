@@ -1,8 +1,10 @@
 package com.challenge5.app.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -19,9 +21,11 @@ public class Product {
 	private UUID id;
 	private String productName;
 	private Double price;
+
 	@ManyToOne(targetEntity = Merchant.class)
+	@JsonIgnore
 	private Merchant merchant;
 
-	@OneToMany(mappedBy = "product")
-	private Set<OrderDetail> orderDetail;
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+	private Set<OrderDetail> orderDetail = new HashSet<>();
 }

@@ -1,5 +1,6 @@
 package com.challenge5.app.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,6 +22,7 @@ public class OrderDetail {
 	private Integer quantity;
 	private Double totalPrice;
 
+	@JsonIgnore
 	@ManyToOne(targetEntity = Product.class)
 	private Product product;
 

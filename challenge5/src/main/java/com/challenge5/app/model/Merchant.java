@@ -25,6 +25,6 @@ public class Merchant {
 	private String merchantLocation;
 	private boolean isOpen;
 
-	@OneToMany(mappedBy = "merchant")
+	@OneToMany(mappedBy = "merchant", cascade = CascadeType.ALL)
 	private Set<Product> products;
 }

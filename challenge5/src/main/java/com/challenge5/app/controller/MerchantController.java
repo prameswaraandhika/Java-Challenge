@@ -1,44 +1,45 @@
 package com.challenge5.app.controller;
 
-import com.challenge5.app.model.Merchant;
-import com.challenge5.app.model.dtos.MerchantCreateDto;
+import com.challenge5.app.model.dtos.MerchanDto;
 import com.challenge5.app.model.dtos.MerchantUpdateStatusDto;
 import com.challenge5.app.service.MerchantService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import lombok.RequiredArgsConstructor;
 
-import java.util.List;
 import java.util.UUID;
 
-@RestController
+@Slf4j
 @RequiredArgsConstructor
+@RestController
+@RequestMapping(value = {"/restapi/merchant"})
 public class MerchantController {
 
     private final MerchantService merchantService;
 
-
-    @GetMapping("/binarfud/merchants")
+    @GetMapping(value = "/all")
     public ResponseEntity<?> getMerchants(){
         return merchantService.listMerchants();
     }
 
-    @GetMapping("/binarfud/merchants/by-location")
+    @GetMapping(value = {"/by-location"})
     public ResponseEntity<?> getMerchantsByLocation(@RequestParam  String location){
         return merchantService.filterMerchantsByLocation(location);
     }
 
-    @PostMapping("/binarfud/merchants")
-    public ResponseEntity<?> createMerchant(@RequestBody MerchantCreateDto merchantCreateDto){
-        return merchantService.createMerchant(merchantCreateDto);
+    @PostMapping
+    public ResponseEntity<?> createMerchant(@RequestBody MerchanDto merchanDto){
+        return merchantService.createMerchant(merchanDto);
     }
 
-    @PutMapping("/binarfud/merchants/{id}")
+    @PutMapping(value = {"/{id}"})
     public ResponseEntity<?> updateMerchantStatus(@PathVariable UUID id, @RequestBody MerchantUpdateStatusDto merchantUpdateStatusDto){
+        log.info("Updating status for merchant with to: {}", merchantUpdateStatusDto.isOpen());
         return merchantService.updateMerchantStatus(id, merchantUpdateStatusDto);
     }
 
-    @DeleteMapping("/binarfud/merchants/{id}")
+    @DeleteMapping(value = {"/{id}"})
     public ResponseEntity<?> deleteMerchantId(@PathVariable UUID id){
         return merchantService.deleteMerchant(id);
     }

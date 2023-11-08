@@ -2,9 +2,10 @@ package com.challenge5.app.service;
 
 import com.challenge5.app.exception.MerchantNotFound;
 import com.challenge5.app.model.Merchant;
-import com.challenge5.app.model.dtos.MerchantCreateDto;
+import com.challenge5.app.model.dtos.MerchanDto;
 import com.challenge5.app.model.dtos.MerchantUpdateStatusDto;
-import com.challenge5.app.repository.MerchantRepository;
+import com.challenge5.app.model.mappers.MerchantMapper;
+import com.challenge5.app.repositories.MerchantRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -19,10 +20,11 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class MerchantService {
     final MerchantRepository merchantRepository;
-    public ResponseEntity<?>  createMerchant(MerchantCreateDto merchantCreateDto){
-        Merchant merchant = new Merchant()
-                .setMerchantName(merchantCreateDto.merchantName())
-                .setMerchantLocation(merchantCreateDto.merchantLocation());
+    final MerchantMapper merchantMapper;
+
+
+    public ResponseEntity<?>  createMerchant(MerchanDto merchanDto){
+        Merchant merchant = merchantMapper.merchantDtoToMerchant(merchanDto);
         Merchant merchantSaved = merchantRepository.save(merchant);
         return ResponseEntity.status(HttpStatus.CREATED).body(merchantSaved);
     }
@@ -33,8 +35,9 @@ public class MerchantService {
             throw new MerchantNotFound(String.format("Merchant with id %s not found", id.toString()));
         }
         Merchant merchant = optionalMerchant.get();
-        merchant.setOpen(merchantUpdateStatusDto.isStatus());
-        return ResponseEntity.ok(merchant);
+        merchant.setOpen(merchantUpdateStatusDto.isOpen());
+        Merchant updatedMerchant = merchantRepository.save(merchant);
+        return ResponseEntity.ok(updatedMerchant);
     }
 
     public ResponseEntity<?> listMerchants(){

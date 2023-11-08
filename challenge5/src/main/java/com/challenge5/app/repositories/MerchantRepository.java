@@ -1,4 +1,4 @@
-package com.challenge5.app.repository;
+package com.challenge5.app.repositories;
 
 import com.challenge5.app.model.Merchant;
 import org.springframework.data.jpa.repository.JpaRepository;
