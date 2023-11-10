@@ -1,17 +1,13 @@
 package com.challenge5.app.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.util.Set;
 import java.util.UUID;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tbl_merchant")
@@ -21,9 +17,11 @@ public class Merchant {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
-	private String merchantName;
-	private String merchantLocation;
-	private boolean isOpen;
+	private String name;
+
+	private String location;
+
+	private boolean open;
 
 	@OneToMany(mappedBy = "merchant", cascade = CascadeType.ALL)
 	private Set<Product> products;

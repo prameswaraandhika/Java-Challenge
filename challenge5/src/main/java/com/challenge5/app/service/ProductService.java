@@ -42,7 +42,7 @@ public class ProductService {
             throw new ProductNotFound(String.format("Product with id %s not found", productUpdateDto.idProduct()));
         }
         Product product = productOptional.get();
-        product.setProductName(productUpdateDto.productName());
+        product.setName(productUpdateDto.productName());
         product.setPrice(productUpdateDto.price());
         product.setMerchant(merchantFound);
         Product productSaved = productRepository.save(product);

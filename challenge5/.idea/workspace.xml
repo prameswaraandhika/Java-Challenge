@@ -4,24 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a00babcf-96b9-45bb-9155-12985f0ac28b" name="Changes" comment="feat: Implement MerchantController for managing merchants&#10;&#10;This commit introduces the MerchantController class, which includes endpoints for managing merchants. The controller provides the following functionality:&#10;&#10;- GET /binarfud/merchants: List all merchants.&#10;- GET /binarfud/merchants/by-location: Filter merchants by location.&#10;- POST /binarfud/merchants: Create a new merchant.&#10;- PUT /binarfud/merchants/{id}: Update merchant status.&#10;- DELETE /binarfud/merchants/{id}: Delete a merchant.&#10;&#10;The controller works in conjunction with the MerchantService to handle merchant-related operations.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/dtos/MerchanDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/mappers/MerchantMapper.java" afterDir="false" />
+    <list default="true" id="a00babcf-96b9-45bb-9155-12985f0ac28b" name="Changes" comment="feat: Implement ProductController for managing merchant's products&#10;&#10;This commit introduces the ProductController class, which provides endpoints for managing products associated with merchants. The controller includes the following functionality:&#10;&#10;- GET /restapi/merchants/{merchantId}/products: List all products for a specific merchant.&#10;- GET /restapi/merchants/{merchantId}/products/high-priced: List high-priced products for a specific merchant.&#10;- POST /restapi/merchants/{merchantId}/products: Create a new product for a merchant.&#10;- PUT /restapi/merchants/{merchantId}/products: Update product information for a merchant.&#10;- DELETE /restapi/merchants/{merchantId}/products/{productId}: Delete a product for a merchant.&#10;&#10;The ProductController works in conjunction with the ProductService to handle product-related operations.">
       <change beforePath="$PROJECT_DIR$/../challenge1" beforeDir="false" afterPath="$PROJECT_DIR$/../challenge1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../challenge2" beforeDir="false" afterPath="$PROJECT_DIR$/../challenge2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../challenge3" beforeDir="false" afterPath="$PROJECT_DIR$/../challenge3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/MerchantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/MerchantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Merchant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Merchant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/OrderDetail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/dtos/MerchantCreateDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/dtos/MerchantUpdateStatusDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/dtos/MerchantUpdateStatusDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/repository/MerchantRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/repositories/MerchantRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/repositories/MerchantRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/repositories/MerchantRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/MerchantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/MerchantService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +30,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Record" />
         <option value="Class" />
         <option value="Interface" />
       </list>
@@ -65,22 +65,33 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/intelij-java-project/BinarFud/challenge5/src/main/java/com/challenge5/app/repositories&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/intelij-java-project/BinarFud/challenge5/src/main/resources/jasper&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.challenge5.app.repositories" />
+      <recent name="com.challenge5.app.service" />
       <recent name="com.challenge5.app.exception" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\intelij-java-project\BinarFud\challenge5\src\main\resources\jasper" />
+      <recent name="C:\Users\user\Desktop\intelij-java-project\BinarFud\challenge5\src\main\resources\reports" />
       <recent name="C:\Users\user\Desktop\intelij-java-project\BinarFud\challenge5\src\main\java\com\challenge5\app\repositories" />
       <recent name="C:\Users\user\Desktop\intelij-java-project\BinarFud\challenge5\src\main\java\com\challenge5\challenge5" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\intelij-java-project\BinarFud\challenge5\src\main\resources\jasper" />
+      <recent name="C:\Users\user\Desktop\intelij-java-project\BinarFud\challenge5\src\main\jasper" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.challenge5.app.model.dtos" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.challenge5.app.exception" />
       <recent name="com.challenge5.app.model.dtos" />
       <recent name="com.challenge5.app.model" />
+      <recent name="com.challenge5.app.exception" />
     </key>
   </component>
   <component name="RunManager">
@@ -120,21 +131,33 @@
       <option name="project" value="LOCAL" />
       <updated>1699370672153</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: Implement ProductController for managing merchant's products&#10;&#10;This commit introduces the ProductController class, which provides endpoints for managing products associated with merchants. The controller includes the following functionality:&#10;&#10;- GET /restapi/merchants/{merchantId}/products: List all products for a specific merchant.&#10;- GET /restapi/merchants/{merchantId}/products/high-priced: List high-priced products for a specific merchant.&#10;- POST /restapi/merchants/{merchantId}/products: Create a new product for a merchant.&#10;- PUT /restapi/merchants/{merchantId}/products: Update product information for a merchant.&#10;- DELETE /restapi/merchants/{merchantId}/products/{productId}: Delete a product for a merchant.&#10;&#10;The ProductController works in conjunction with the ProductService to handle product-related operations.">
+      <option name="closed" value="true" />
+      <created>1699450766069</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699450766069</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: Implement ProductController for managing merchant's products&#10;&#10;This commit introduces the ProductController class, which provides endpoints for managing products associated with merchants. The controller includes the following functionality:&#10;&#10;- GET /restapi/merchants/{merchantId}/products: List all products for a specific merchant.&#10;- GET /restapi/merchants/{merchantId}/products/high-priced: List high-priced products for a specific merchant.&#10;- POST /restapi/merchants/{merchantId}/products: Create a new product for a merchant.&#10;- PUT /restapi/merchants/{merchantId}/products: Update product information for a merchant.&#10;- DELETE /restapi/merchants/{merchantId}/products/{productId}: Delete a product for a merchant.&#10;&#10;The ProductController works in conjunction with the ProductService to handle product-related operations.">
+      <option name="closed" value="true" />
+      <created>1699450805933</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699450805933</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: Implement MerchantController for managing merchants&#10;&#10;This commit introduces the MerchantController class, which includes endpoints for managing merchants. The controller provides the following functionality:&#10;&#10;- GET /binarfud/merchants: List all merchants.&#10;- GET /binarfud/merchants/by-location: Filter merchants by location.&#10;- POST /binarfud/merchants: Create a new merchant.&#10;- PUT /binarfud/merchants/{id}: Update merchant status.&#10;- DELETE /binarfud/merchants/{id}: Delete a merchant.&#10;&#10;The controller works in conjunction with the MerchantService to handle merchant-related operations." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Implement MerchantController for managing merchants&#10;&#10;This commit introduces the MerchantController class, which includes endpoints for managing merchants. The controller provides the following functionality:&#10;&#10;- GET /binarfud/merchants: List all merchants.&#10;- GET /binarfud/merchants/by-location: Filter merchants by location.&#10;- POST /binarfud/merchants: Create a new merchant.&#10;- PUT /binarfud/merchants/{id}: Update merchant status.&#10;- DELETE /binarfud/merchants/{id}: Delete a merchant.&#10;&#10;The controller works in conjunction with the MerchantService to handle merchant-related operations." />
+    <MESSAGE value="feat: Implement ProductController for managing merchant's products&#10;&#10;This commit introduces the ProductController class, which provides endpoints for managing products associated with merchants. The controller includes the following functionality:&#10;&#10;- GET /restapi/merchants/{merchantId}/products: List all products for a specific merchant.&#10;- GET /restapi/merchants/{merchantId}/products/high-priced: List high-priced products for a specific merchant.&#10;- POST /restapi/merchants/{merchantId}/products: Create a new product for a merchant.&#10;- PUT /restapi/merchants/{merchantId}/products: Update product information for a merchant.&#10;- DELETE /restapi/merchants/{merchantId}/products/{productId}: Delete a product for a merchant.&#10;&#10;The ProductController works in conjunction with the ProductService to handle product-related operations." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Implement ProductController for managing merchant's products&#10;&#10;This commit introduces the ProductController class, which provides endpoints for managing products associated with merchants. The controller includes the following functionality:&#10;&#10;- GET /restapi/merchants/{merchantId}/products: List all products for a specific merchant.&#10;- GET /restapi/merchants/{merchantId}/products/high-priced: List high-priced products for a specific merchant.&#10;- POST /restapi/merchants/{merchantId}/products: Create a new product for a merchant.&#10;- PUT /restapi/merchants/{merchantId}/products: Update product information for a merchant.&#10;- DELETE /restapi/merchants/{merchantId}/products/{productId}: Delete a product for a merchant.&#10;&#10;The ProductController works in conjunction with the ProductService to handle product-related operations." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/MerchantController.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/ProductController.java</url>
           <line>20</line>
@@ -145,14 +168,15 @@
           <line>21</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/MerchantController.java</url>
-          <line>36</line>
-          <properties class="com.challenge5.app.controller.MerchantController" method="updateMerchantStatus">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="4" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/OrderController.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/OrderController.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/ProductController.java</url>
@@ -162,6 +186,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/OrderController.java</url>
+          <line>26</line>
+          <properties class="com.challenge5.app.controller.OrderController" method="doOrder">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

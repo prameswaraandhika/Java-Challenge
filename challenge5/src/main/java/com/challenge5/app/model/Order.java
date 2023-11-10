@@ -1,5 +1,6 @@
 package com.challenge5.app.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,13 +20,15 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
-	private LocalDate orderTime;
-	private String destinationAdress;
-	private boolean isComplete;
+
+	private LocalDate time;
+	private String adress;
+	private boolean complete;
 
 	@ManyToOne(targetEntity = User.class)
+	@JsonIgnore
 	private User user;
 
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
 	private Set<OrderDetail> orderDetails;
 }

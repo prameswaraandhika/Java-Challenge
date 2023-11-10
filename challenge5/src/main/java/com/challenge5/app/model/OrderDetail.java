@@ -22,10 +22,10 @@ public class OrderDetail {
 	private Integer quantity;
 	private Double totalPrice;
 
-	@JsonIgnore
 	@ManyToOne(targetEntity = Product.class)
 	private Product product;
 
 	@ManyToOne(targetEntity = Order.class)
+	@JsonIgnore
 	private Order order;
 }

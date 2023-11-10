@@ -19,13 +19,15 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
-	private String productName;
+
+	private String name;
 	private Double price;
 
-	@ManyToOne(targetEntity = Merchant.class)
 	@JsonIgnore
+	@ManyToOne(targetEntity = Merchant.class)
 	private Merchant merchant;
 
 	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Set<OrderDetail> orderDetail = new HashSet<>();
 }

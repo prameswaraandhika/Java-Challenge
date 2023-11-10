@@ -46,7 +46,7 @@ public class MerchantService {
     }
 
     public ResponseEntity<List<Merchant>> filterMerchantsByLocation(String criteria){
-        List<Merchant> filteredMerchants = merchantRepository.findByMerchantLocation(criteria);
+        List<Merchant> filteredMerchants = merchantRepository.findAllByLocation(criteria);
         return ResponseEntity.ok(filteredMerchants);
     }
 
