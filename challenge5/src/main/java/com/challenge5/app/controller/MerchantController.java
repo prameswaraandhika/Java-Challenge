@@ -56,9 +56,9 @@ public class MerchantController {
     }
 
 
-    @GetMapping(value = "/omset_perbulan")
-    private ResponseEntity<?> generateInvoiceMonth() throws JRException, IOException {
-            return invoiceService.getMerchantReport();
+    @GetMapping(value = "/monthly-revenue/{id}")
+    private ResponseEntity<?> generateInvoiceMonth(@PathVariable UUID id) throws JRException, IOException {
+            return invoiceService.getMerchantReport(id);
     }
 
 

@@ -1,6 +1,6 @@
 package com.challenge5.app.service;
 
-import com.challenge5.app.model.Merchant;
+import com.challenge5.app.model.dtos.MerchantMonthlyRevenueDto;
 import com.challenge5.app.repositories.MerchantRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,17 +21,16 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class InvoiceService {
     private final MerchantRepository merchantRepository;
-    private final DataSource dataSource;
 
-    public ResponseEntity<?> getMerchantReport(){
-        List<Merchant> merchantList = merchantRepository.findAll();
-
+    public ResponseEntity<?> getMerchantReport(UUID idNerchants){
+        List<MerchantMonthlyRevenueDto> merchantList = merchantRepository.getMonthlyRevenues(idNerchants);
         byte[] content = convertToByte(merchantList);
         ByteArrayResource resource = new ByteArrayResource(content);
         return ResponseEntity
@@ -39,23 +38,23 @@ public class InvoiceService {
                 .contentLength(resource.contentLength())
                 .header(HttpHeaders.CONTENT_DISPOSITION,
                         ContentDisposition.attachment()
-                                .filename("merchantList.pdf")
+                                .filename("merchant_invoice.pdf")
                                 .build()
                                 .toString())
                 .body(resource);
     }
 
-    private byte[] convertToByte(List<Merchant> merchantList) {
+    private byte[] convertToByte(List<?> merchantList) {
         JasperReport jasperReport;
         try {
             jasperReport = (JasperReport) JRLoader
                     .loadObject(ResourceUtils
-                            .getFile("merchantList.jasper"));
+                            .getFile("Invoice_Merchant_Monthly.jasper"));
         } catch (JRException | FileNotFoundException e) {
             try {
-                File file = ResourceUtils.getFile("classpath:jasper/merchantList.jrxml");
+                File file = ResourceUtils.getFile("classpath:jasper/Invoice_Merchant_Monthly.jrxml");
                 jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
-                JRSaver.saveObject(jasperReport, "merchantList.jasper");
+                JRSaver.saveObject(jasperReport, "Invoice_Merchant_Monthly.jasper");
             } catch (FileNotFoundException | JRException ex) {
                 throw new RuntimeException(ex);
             }
@@ -72,4 +71,5 @@ public class InvoiceService {
         }
         return report;
     }
+
 }

@@ -5,21 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a00babcf-96b9-45bb-9155-12985f0ac28b" name="Changes" comment="feat: Implement ProductController for managing merchant's products&#10;&#10;This commit introduces the ProductController class, which provides endpoints for managing products associated with merchants. The controller includes the following functionality:&#10;&#10;- GET /restapi/merchants/{merchantId}/products: List all products for a specific merchant.&#10;- GET /restapi/merchants/{merchantId}/products/high-priced: List high-priced products for a specific merchant.&#10;- POST /restapi/merchants/{merchantId}/products: Create a new product for a merchant.&#10;- PUT /restapi/merchants/{merchantId}/products: Update product information for a merchant.&#10;- DELETE /restapi/merchants/{merchantId}/products/{productId}: Delete a product for a merchant.&#10;&#10;The ProductController works in conjunction with the ProductService to handle product-related operations.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/dtos/MerchantMonthlyRevenueDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../challenge1" beforeDir="false" afterPath="$PROJECT_DIR$/../challenge1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../challenge2" beforeDir="false" afterPath="$PROJECT_DIR$/../challenge2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../challenge3" beforeDir="false" afterPath="$PROJECT_DIR$/../challenge3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/merchantList.jasper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/merchant_monthly_turnover.jasper" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/MerchantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/MerchantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Merchant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Merchant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/OrderDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/dtos/MonthlyRevenueDTO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/repositories/MerchantRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/repositories/MerchantRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/MerchantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/MerchantService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/InvoiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/InvoiceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

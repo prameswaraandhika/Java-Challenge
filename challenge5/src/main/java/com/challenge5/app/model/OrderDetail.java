@@ -20,6 +20,7 @@ public class OrderDetail {
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
 	private Integer quantity;
+	@Column(name = "total_price")
 	private Double totalPrice;
 
 	@ManyToOne(targetEntity = Product.class)
