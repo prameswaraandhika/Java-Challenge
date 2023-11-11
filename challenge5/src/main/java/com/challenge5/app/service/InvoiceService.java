@@ -1,5 +1,6 @@
 package com.challenge5.app.service;
 
+import com.challenge5.app.model.MerchantFilterRevenueDto;
 import com.challenge5.app.model.dtos.MerchantMonthlyRevenueDto;
 import com.challenge5.app.repositories.MerchantRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
-import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -29,8 +29,11 @@ import java.util.UUID;
 public class InvoiceService {
     private final MerchantRepository merchantRepository;
 
-    public ResponseEntity<?> getMerchantReport(UUID idNerchants){
-        List<MerchantMonthlyRevenueDto> merchantList = merchantRepository.getMonthlyRevenues(idNerchants);
+    public ResponseEntity<?> getMerchantReport(UUID idNerchants, MerchantFilterRevenueDto merchantFilterRevenueDto){
+        List<MerchantMonthlyRevenueDto> merchantList = merchantRepository.getMonthlyRevenues(idNerchants,
+                merchantFilterRevenueDto.getStart(),
+                merchantFilterRevenueDto.getEnd());
+        log.info("{} merchants found", merchantList.size());
         byte[] content = convertToByte(merchantList);
         ByteArrayResource resource = new ByteArrayResource(content);
         return ResponseEntity

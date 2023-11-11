@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a00babcf-96b9-45bb-9155-12985f0ac28b" name="Changes" comment="feat: Implement ProductController for managing merchant's products&#10;&#10;This commit introduces the ProductController class, which provides endpoints for managing products associated with merchants. The controller includes the following functionality:&#10;&#10;- GET /restapi/merchants/{merchantId}/products: List all products for a specific merchant.&#10;- GET /restapi/merchants/{merchantId}/products/high-priced: List high-priced products for a specific merchant.&#10;- POST /restapi/merchants/{merchantId}/products: Create a new product for a merchant.&#10;- PUT /restapi/merchants/{merchantId}/products: Update product information for a merchant.&#10;- DELETE /restapi/merchants/{merchantId}/products/{productId}: Delete a product for a merchant.&#10;&#10;The ProductController works in conjunction with the ProductService to handle product-related operations.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/dtos/MerchantMonthlyRevenueDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../challenge1" beforeDir="false" afterPath="$PROJECT_DIR$/../challenge1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../challenge2" beforeDir="false" afterPath="$PROJECT_DIR$/../challenge2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../challenge3" beforeDir="false" afterPath="$PROJECT_DIR$/../challenge3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/merchantList.jasper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/merchant_monthly_turnover.jasper" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/MerchantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/MerchantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/OrderDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/dtos/MonthlyRevenueDTO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/repositories/MerchantRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/repositories/MerchantRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/InvoiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/InvoiceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Record" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -68,6 +62,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.challenge5.app.model" />
       <recent name="com.challenge5.app.repositories" />
       <recent name="com.challenge5.app.service" />
       <recent name="com.challenge5.app.exception" />
@@ -175,6 +170,26 @@
           <line>28</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/service/InvoiceService.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/service/InvoiceService.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/service/InvoiceService.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/service/InvoiceService.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/ProductController.java</url>
           <line>19</line>
@@ -192,6 +207,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/repositories/MerchantRepository.java</url>
+          <line>24</line>
+          <properties class="com.challenge5.app.repositories.MerchantRepository" method="getMonthlyRevenues">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

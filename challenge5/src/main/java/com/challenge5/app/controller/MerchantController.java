@@ -1,6 +1,7 @@
 package com.challenge5.app.controller;
 
 import com.challenge5.app.model.Merchant;
+import com.challenge5.app.model.MerchantFilterRevenueDto;
 import com.challenge5.app.model.dtos.MerchanDto;
 import com.challenge5.app.model.dtos.MerchantUpdateStatusDto;
 import com.challenge5.app.service.InvoiceService;
@@ -56,9 +57,9 @@ public class MerchantController {
     }
 
 
-    @GetMapping(value = "/monthly-revenue/{id}")
-    private ResponseEntity<?> generateInvoiceMonth(@PathVariable UUID id) throws JRException, IOException {
-            return invoiceService.getMerchantReport(id);
+    @PostMapping(value = "/monthly-revenue/{id}")
+    private ResponseEntity<?> generateInvoiceMonth(@PathVariable UUID id, @RequestBody MerchantFilterRevenueDto merchantFilterRevenueDto) throws JRException, IOException {
+            return invoiceService.getMerchantReport(id, merchantFilterRevenueDto);
     }
 
 
