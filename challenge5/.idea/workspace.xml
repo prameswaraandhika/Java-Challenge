@@ -9,9 +9,10 @@
       <change beforePath="$PROJECT_DIR$/../challenge2" beforeDir="false" afterPath="$PROJECT_DIR$/../challenge2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../challenge3" beforeDir="false" afterPath="$PROJECT_DIR$/../challenge3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invoice_Merchant_Monthly.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/Invoice_Merchant_Monthly.jasper" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/MerchantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/MerchantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/repositories/MerchantRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/repositories/MerchantRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/InvoiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/InvoiceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/Invoice_Merchant_Monthly.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/Invoice_Merchant_Monthly.jrxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +56,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;a497adbd&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/intelij-java-project/BinarFud/challenge5/src/main/resources/jasper&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
@@ -193,7 +194,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/ProductController.java</url>
           <line>19</line>
-          <properties class="com.challenge5.app.controller.ProductController" method="getProductsForMerchant">
+          <properties class="com.challenge5.app.controller.ProductController">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -202,7 +203,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/OrderController.java</url>
           <line>26</line>
-          <properties class="com.challenge5.app.controller.OrderController" method="doOrder">
+          <properties class="com.challenge5.app.controller.OrderController">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -211,7 +212,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/repositories/MerchantRepository.java</url>
           <line>24</line>
-          <properties class="com.challenge5.app.repositories.MerchantRepository" method="getMonthlyRevenues">
+          <properties class="com.challenge5.app.repositories.MerchantRepository">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

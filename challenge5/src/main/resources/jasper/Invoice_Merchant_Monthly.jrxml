@@ -64,19 +64,22 @@ ZTAtYTE3ZGFiMzgwMTc5Ow==]]>
 			<![CDATA[]]>
 		</queryString>
 	</subDataset>
+	<parameter name="startDate" class="java.util.Date"/>
+	<parameter name="endDate" class="java.util.Date"/>
 	<queryString language="SQL">
-		<![CDATA[SELECT tbl_merchant.name,
-	tbl_order_detail.total_price,
-	tbl_order_detail.quantity,
-	tbl_product.name AS product,
-	tbl_order.time
-FROM tbl_order_detail
-	INNER JOIN tbl_order ON 
-	 tbl_order_detail.order_id = tbl_order.id 
-	INNER JOIN tbl_product ON 
-	 tbl_order_detail.product_id = tbl_product.id 
-	INNER JOIN tbl_merchant ON 
-	 tbl_product.merchant_id = tbl_merchant.id]]>
+		<![CDATA[SELECT
+        tbl_merchant.name,
+        tbl_order_detail.total_price,
+        tbl_order_detail.quantity,
+        tbl_product.name AS product,
+        tbl_order.time
+    FROM
+        tbl_order_detail
+        INNER JOIN tbl_order ON tbl_order_detail.order_id = tbl_order.id
+        INNER JOIN tbl_product ON tbl_order_detail.product_id = tbl_product.id
+        INNER JOIN tbl_merchant ON tbl_product.merchant_id = tbl_merchant.id
+    WHERE
+        tbl_order.time BETWEEN $P{startDate} AND $P{endDate}]]>
 	</queryString>
 	<field name="name" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="name"/>
