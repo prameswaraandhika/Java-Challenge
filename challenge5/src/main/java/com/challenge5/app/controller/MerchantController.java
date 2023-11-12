@@ -18,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -57,9 +58,23 @@ public class MerchantController {
     }
 
 
-    @PostMapping(value = "/monthly-revenue/{id}")
-    private ResponseEntity<?> generateInvoiceMonth(@PathVariable UUID id, @RequestBody MerchantFilterRevenueDto merchantFilterRevenueDto) throws JRException, IOException {
-            return invoiceService.getMerchantReport(id, merchantFilterRevenueDto);
+
+    @GetMapping("/revenue/{id}")
+    public ResponseEntity<?> getMerchantRevenue(
+            @PathVariable UUID id,
+            @RequestParam(name = "start") String start,
+            @RequestParam(name = "end") String end) {
+
+        // Convert start and end strings to LocalDate
+        LocalDate startDate = LocalDate.parse(start);
+        LocalDate endDate = LocalDate.parse(end);
+
+        // Create MerchantFilterRevenueDto
+        MerchantFilterRevenueDto filterRevenueDto = new MerchantFilterRevenueDto(startDate, endDate);
+
+        // Your logic to process the request using filterRevenueDto
+        // For now, let's just return a message
+        return invoiceService.getMerchantReport(id, filterRevenueDto);
     }
 
 

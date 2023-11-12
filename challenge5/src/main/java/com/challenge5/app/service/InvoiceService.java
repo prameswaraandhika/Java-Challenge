@@ -34,7 +34,7 @@ public class InvoiceService {
                 merchantFilterRevenueDto.getStart(),
                 merchantFilterRevenueDto.getEnd());
         log.info("{} merchants found", merchantList.size());
-        byte[] content = convertToByte(merchantList);
+        byte[] content = convertToByte(merchantList, merchantFilterRevenueDto);
         ByteArrayResource resource = new ByteArrayResource(content);
         return ResponseEntity
                 .ok()
@@ -47,7 +47,7 @@ public class InvoiceService {
                 .body(resource);
     }
 
-    private byte[] convertToByte(List<?> merchantList) {
+    private byte[] convertToByte(List<?> merchantList, MerchantFilterRevenueDto merchantFilterRevenueDto) {
         JasperReport jasperReport;
         try {
             jasperReport = (JasperReport) JRLoader
@@ -67,6 +67,8 @@ public class InvoiceService {
         byte[] report;
         try {
             Map<String, Object> parameters = new HashMap<>();
+            parameters.put("startDate", merchantFilterRevenueDto.getStart());
+            parameters.put("endDate", merchantFilterRevenueDto.getEnd());
             jasperPrint = JasperFillManager.fillReport(jasperReport,parameters, dataSource);
             report = JasperExportManager.exportReportToPdf(jasperPrint);
         } catch (JRException e) {
