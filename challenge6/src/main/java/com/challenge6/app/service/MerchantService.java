@@ -1,11 +1,12 @@
-package com.challenge5.app.service;
+package com.challenge6.app.service;
 
-import com.challenge5.app.exception.MerchantNotFound;
-import com.challenge5.app.model.Merchant;
-import com.challenge5.app.model.dtos.MerchanDto;
-import com.challenge5.app.model.dtos.MerchantUpdateStatusDto;
-import com.challenge5.app.model.mappers.MerchantMapper;
-import com.challenge5.app.repositories.MerchantRepository;
+
+import com.challenge6.app.exception.MerchantNotFound;
+import com.challenge6.app.model.Merchant;
+import com.challenge6.app.model.dtos.MerchanDto;
+import com.challenge6.app.model.dtos.MerchantUpdateStatusDto;
+import com.challenge6.app.model.mappers.MerchantMapper;
+import com.challenge6.app.repositories.MerchantRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -43,6 +44,9 @@ public class MerchantService {
 
     public ResponseEntity<?> listMerchants(){
         List<Merchant> merchants = merchantRepository.findAll();
+        if (merchants.isEmpty()){
+            return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(merchants);
     }
 

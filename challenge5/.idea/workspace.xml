@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a00babcf-96b9-45bb-9155-12985f0ac28b" name="Changes" comment="feat: Implement ProductController for managing merchant's products&#10;&#10;This commit introduces the ProductController class, which provides endpoints for managing products associated with merchants. The controller includes the following functionality:&#10;&#10;- GET /restapi/merchants/{merchantId}/products: List all products for a specific merchant.&#10;- GET /restapi/merchants/{merchantId}/products/high-priced: List high-priced products for a specific merchant.&#10;- POST /restapi/merchants/{merchantId}/products: Create a new product for a merchant.&#10;- PUT /restapi/merchants/{merchantId}/products: Update product information for a merchant.&#10;- DELETE /restapi/merchants/{merchantId}/products/{productId}: Delete a product for a merchant.&#10;&#10;The ProductController works in conjunction with the ProductService to handle product-related operations.">
+    <list default="true" id="a00babcf-96b9-45bb-9155-12985f0ac28b" name="Changes" comment="its succesing filtering month pdf">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../challenge1" beforeDir="false" afterPath="$PROJECT_DIR$/../challenge1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../challenge2" beforeDir="false" afterPath="$PROJECT_DIR$/../challenge2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../challenge3" beforeDir="false" afterPath="$PROJECT_DIR$/../challenge3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invoice_Merchant_Monthly.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/Invoice_Merchant_Monthly.jasper" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/MerchantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/MerchantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Merchant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/Merchant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/MerchantFilterRevenueDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/model/dtos/MerchantFilterRevenueDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/InvoiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/InvoiceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/Invoice_Merchant_Monthly.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/Invoice_Merchant_Monthly.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/MerchantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/challenge5/app/service/MerchantService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,15 +55,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;a497adbd&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/intelij-java-project/BinarFud/challenge5/src/main/resources/jasper&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "eb3350f4",
+    "last_opened_file_path": "C:/Users/user/Desktop/intelij-java-project/springsecurityexample",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.challenge5.app.model" />
@@ -87,7 +90,12 @@
       <recent name="com.challenge5.app.exception" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="sonarlint" />
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.MerchantControllerTest.testGetMerchants">
     <configuration name="Challenge5Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.challenge5.app.Challenge5Application" />
       <module name="challenge5" />
@@ -101,9 +109,76 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MerchantControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="challenge5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.challenge5.app.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.challenge5.app.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.challenge5.app.controller.MerchantControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MerchantControllerTest.getMerchantById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="challenge5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.challenge5.app.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.challenge5.app.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.challenge5.app.controller.MerchantControllerTest" />
+      <option name="METHOD_NAME" value="getMerchantById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MerchantControllerTest.getMerchants" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="challenge5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.challenge5.app.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.challenge5.app.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.challenge5.app.controller.MerchantControllerTest" />
+      <option name="METHOD_NAME" value="getMerchants" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MerchantControllerTest.testGetMerchants" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="challenge5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.challenge5.app.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.challenge5.app.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.challenge5.app.controller.MerchantControllerTest" />
+      <option name="METHOD_NAME" value="testGetMerchants" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MerchantControllerTest.testGetMerchants" />
+        <item itemvalue="JUnit.MerchantControllerTest.getMerchants" />
+        <item itemvalue="JUnit.MerchantControllerTest" />
         <item itemvalue="Application.Challenge5Application" />
+        <item itemvalue="JUnit.MerchantControllerTest.getMerchantById" />
       </list>
     </recent_temporary>
   </component>
@@ -146,7 +221,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: Implement MerchantController for managing merchants&#10;&#10;This commit introduces the MerchantController class, which includes endpoints for managing merchants. The controller provides the following functionality:&#10;&#10;- GET /binarfud/merchants: List all merchants.&#10;- GET /binarfud/merchants/by-location: Filter merchants by location.&#10;- POST /binarfud/merchants: Create a new merchant.&#10;- PUT /binarfud/merchants/{id}: Update merchant status.&#10;- DELETE /binarfud/merchants/{id}: Delete a merchant.&#10;&#10;The controller works in conjunction with the MerchantService to handle merchant-related operations." />
     <MESSAGE value="feat: Implement ProductController for managing merchant's products&#10;&#10;This commit introduces the ProductController class, which provides endpoints for managing products associated with merchants. The controller includes the following functionality:&#10;&#10;- GET /restapi/merchants/{merchantId}/products: List all products for a specific merchant.&#10;- GET /restapi/merchants/{merchantId}/products/high-priced: List high-priced products for a specific merchant.&#10;- POST /restapi/merchants/{merchantId}/products: Create a new product for a merchant.&#10;- PUT /restapi/merchants/{merchantId}/products: Update product information for a merchant.&#10;- DELETE /restapi/merchants/{merchantId}/products/{productId}: Delete a product for a merchant.&#10;&#10;The ProductController works in conjunction with the ProductService to handle product-related operations." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Implement ProductController for managing merchant's products&#10;&#10;This commit introduces the ProductController class, which provides endpoints for managing products associated with merchants. The controller includes the following functionality:&#10;&#10;- GET /restapi/merchants/{merchantId}/products: List all products for a specific merchant.&#10;- GET /restapi/merchants/{merchantId}/products/high-priced: List high-priced products for a specific merchant.&#10;- POST /restapi/merchants/{merchantId}/products: Create a new product for a merchant.&#10;- PUT /restapi/merchants/{merchantId}/products: Update product information for a merchant.&#10;- DELETE /restapi/merchants/{merchantId}/products/{productId}: Delete a product for a merchant.&#10;&#10;The ProductController works in conjunction with the ProductService to handle product-related operations." />
+    <MESSAGE value="its succesing filtering month pdf" />
+    <option name="LAST_COMMIT_MESSAGE" value="its succesing filtering month pdf" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -194,7 +270,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/ProductController.java</url>
           <line>19</line>
-          <properties class="com.challenge5.app.controller.ProductController">
+          <properties class="com.challenge5.app.controller.ProductController" method="getProductsForMerchant">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -203,7 +279,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/controller/OrderController.java</url>
           <line>26</line>
-          <properties class="com.challenge5.app.controller.OrderController">
+          <properties class="com.challenge5.app.controller.OrderController" method="doOrder">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -212,7 +288,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/challenge5/app/repositories/MerchantRepository.java</url>
           <line>24</line>
-          <properties class="com.challenge5.app.repositories.MerchantRepository">
+          <properties class="com.challenge5.app.repositories.MerchantRepository" method="getMonthlyRevenues">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

@@ -1,13 +1,14 @@
-package com.challenge5.app.controller;
+package com.challenge6.app.controller;
 
-import com.challenge5.app.model.dtos.MerchantFilterRevenueDto;
-import com.challenge5.app.model.dtos.MerchanDto;
-import com.challenge5.app.model.dtos.MerchantUpdateStatusDto;
-import com.challenge5.app.service.InvoiceService;
-import com.challenge5.app.service.MerchantService;
+import com.challenge6.app.model.dtos.MerchanDto;
+import com.challenge6.app.model.dtos.MerchantFilterRevenueDto;
+import com.challenge6.app.model.dtos.MerchantUpdateStatusDto;
+import com.challenge6.app.service.InvoiceService;
+import com.challenge6.app.service.MerchantService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import lombok.RequiredArgsConstructor;
 
@@ -22,6 +23,7 @@ public class MerchantController {
 
     private final MerchantService merchantService;
     private final InvoiceService invoiceService;
+
 
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getMerchants(){
