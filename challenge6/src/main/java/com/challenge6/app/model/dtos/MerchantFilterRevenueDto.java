@@ -1,4 +1,4 @@
-package com.challenge5.app.model;
+package com.challenge6.app.model.dtos;
 
 import lombok.*;
 

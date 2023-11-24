@@ -1,8 +1,8 @@
-package com.challenge5.app.service;
+package com.challenge6.app.service;
 
-import com.challenge5.app.model.dtos.MerchantFilterRevenueDto;
-import com.challenge5.app.model.dtos.MerchantMonthlyRevenueDto;
-import com.challenge5.app.repositories.MerchantRepository;
+import com.challenge6.app.model.dtos.MerchantFilterRevenueDto;
+import com.challenge6.app.model.dtos.MerchantMonthlyRevenueDto;
+import com.challenge6.app.repositories.MerchantRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jasperreports.engine.*;
