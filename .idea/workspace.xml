@@ -23,129 +23,10 @@
       <change afterPath="$PROJECT_DIR$/challenge3/src/main/resources/nasi-ayam-bakarmadu.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/challenge3/src/main/resources/nasi-ayam-goreng.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/challenge3/src/main/resources/nasi-goreng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/Invoice_Merchant_Monthly.jasper" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/Challenge5Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/controller/MerchantController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/controller/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/exception/MerchantNotFound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/exception/ProductNotFound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/Merchant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/OrderDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/dtos/MerchanDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/dtos/MerchantFilterRevenueDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/dtos/MerchantMonthlyRevenueDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/dtos/MerchantUpdateStatusDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/dtos/OrderDetailNewDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/dtos/OrderNewDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/dtos/ProductDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/dtos/ProductUpdateDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/dtos/UserNewDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/dtos/UserUpdatePasswordDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/mappers/MerchantMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/mappers/OrderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/mappers/ProductMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/model/mappers/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/repositories/MerchantRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/repositories/OrderDetailRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/repositories/OrderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/repositories/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/repositories/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/service/BaseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/service/InvoiceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/service/MerchantService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge5/app/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/resources/jasper/Invoice_Merchant_Monthly.jrxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/main/resources/jasper/merchantList.jrxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/src/test/java/com/challenge5/app/Challenge5ApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge6/test.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/challenge1" beforeDir="false" afterPath="$PROJECT_DIR$/challenge1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/challenge1/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/invoice_pembayaran.txt" beforeDir="false" afterPath="$PROJECT_DIR$/challenge1/invoice_pembayaran.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge1/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge2/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge2/controller/ControllerPesanan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge2/model/Databases.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge2/model/MenuMakanan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge2/model/Pesanan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge2/services/ServicePesanan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge2/services/ServicePesananImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge2/util/Utils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge2/view/View.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/controller/ControllerOrder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/controller/ControllerProduct.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/model/Merchant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/model/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/model/OrderDetail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/model/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/model/Users.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/service/ServiceOrder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/service/ServiceOrderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/service/ServiceProduct.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/service/ServiceProductImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/sql/ConnectionManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/sql/InfoUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1/src/main/java/org/example/challenge3/view/BinarFudView.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/challenge2" beforeDir="false" afterPath="$PROJECT_DIR$/challenge2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/challenge2/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge1/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge1/MenuMakanan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge1/Pesanan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/controller/ControllerOrder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/controller/ControllerProduct.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/model/Merchant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/model/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/model/OrderDetail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/model/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/model/Users.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/service/ServiceOrder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/service/ServiceOrderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/service/ServiceProduct.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/service/ServiceProductImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/sql/ConnectionManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/sql/InfoUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2/src/main/java/org/example/challenge3/view/BinarFudView.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/challenge3" beforeDir="false" afterPath="$PROJECT_DIR$/challenge3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/challenge3/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge1/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge1/MenuMakanan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge1/Pesanan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge2/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge2/controller/ControllerPesanan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge2/model/Databases.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge2/model/MenuMakanan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge2/model/Pesanan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge2/services/ServicePesanan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge2/services/ServicePesananImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge2/util/Utils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge2/view/View.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge3/controller/ControllerOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge3/controller/ControllerOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge3/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge3/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge3/service/ServiceProductImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge3/service/ServiceProductImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge3/view/BinarFudView.java" beforeDir="false" afterPath="$PROJECT_DIR$/challenge3/src/main/java/org/example/challenge3/view/BinarFudView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/challenge5/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge5/src/main/java/com/challenge5/app/controller/MerchantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/challenge5/src/main/java/com/challenge5/app/controller/MerchantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge5/src/main/java/com/challenge5/app/model/Merchant.java" beforeDir="false" afterPath="$PROJECT_DIR$/challenge5/src/main/java/com/challenge5/app/model/Merchant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge5/src/main/java/com/challenge5/app/model/MerchantFilterRevenueDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/challenge5/src/main/java/com/challenge5/app/model/dtos/MerchantFilterRevenueDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge5/src/main/java/com/challenge5/app/service/InvoiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/challenge5/src/main/java/com/challenge5/app/service/InvoiceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge5/src/main/java/com/challenge5/app/service/MerchantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/challenge5/src/main/java/com/challenge5/app/service/MerchantService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge5/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/challenge5/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,14 +47,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "eb3350f4",
-    "last_opened_file_path": "C:/Users/user/Desktop/intelij-java-project/BinarFud/challenge6"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;jwtauth&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/intelij-java-project/BinarFud/challenge6&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\user\Desktop\intelij-java-project\BinarFud" />
