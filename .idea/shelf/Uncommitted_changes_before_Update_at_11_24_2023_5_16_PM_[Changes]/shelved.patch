@@ -1,0 +1,258 @@
+Index: challenge3/src/main/java/org/example/challenge3/view/BinarFudView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.challenge3.view;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport javax.swing.table.DefaultTableModel;\r\nimport java.text.NumberFormat;\r\nimport java.util.*;\r\nimport java.util.List;\r\n\r\nimport lombok.Getter;\r\nimport org.example.challenge3.controller.ControllerOrder;\r\nimport org.example.challenge3.controller.ControllerProduct;\r\nimport org.example.challenge3.model.Product;\r\nimport org.example.challenge3.service.ServiceProduct;\r\nimport org.example.challenge3.service.ServiceProductImpl;\r\n\r\n@Getter\r\npublic class BinarFudView {\r\n\tprivate JFrame frame;\r\n\tprivate JTable table;\r\n\tprivate JMenuBar menuBar;\r\n\tprivate JButton bayarButton;\r\n\tprivate JButton batalButton;\r\n\tprivate JButton totalPesanan;\r\n\tprivate DefaultTableModel tableModel;\r\n\tprivate Map<JButton, Product> menuItemToProduct;\r\n\tprivate ServiceProduct serviceProduct;\r\n\tprivate Product clickedProduct;\r\n\tprivate ControllerOrder controllerOrder;\r\n\tprivate ControllerProduct controllerProduct;\r\n\r\n\r\n\tpublic BinarFudView() {\r\n\t\tcontrollerOrder = new ControllerOrder(this);\r\n\t\tcontrollerProduct = new ControllerProduct(this);\r\n\t\tframe = new JFrame(\"BinarFud\");\r\n\t\tmenuItemToProduct = new HashMap<>();\r\n\t\tserviceProduct = new ServiceProductImpl();\r\n\r\n\t\t// ... (rest of your code)\r\n\r\n\t\t// Create a menu bar\r\n\t\tmenuBar = new JMenuBar();\r\n\r\n\t\tJMenu fileMenu = new JMenu(\"File\");\r\n\r\n\t\t// Create a \"File Menu Item\" menu item\r\n\t\tJMenuItem viewFileMenuItem = new JMenuItem(\"Ekspor to excel\");\r\n\t\tviewFileMenuItem.addActionListener(e -> {\r\n\t\t\t// Add code to open and display the file\r\n\t\t\t// You can create a new JFrame for the chart here\r\n\t\t});\r\n\r\n\t\tfileMenu.add(viewFileMenuItem);\r\n\r\n\t\t// Create a \"Chart\" menu\r\n\t\tJMenu chartMenu = new JMenu(\"Statistik\");\r\n\r\n\t\t// Create a \"View Chart\" menu item\r\n\t\tJMenuItem viewChartMenuItem = new JMenuItem(\"Lihat Statistik\");\r\n\t\tviewChartMenuItem.addActionListener(e -> {\r\n\t\t\t// Add code to open and display the chart\r\n\t\t\t// You can create a new JFrame for the chart here\r\n\t\t});\r\n\r\n\t\tchartMenu.add(viewChartMenuItem);\r\n\r\n\t\t// Create a \"Management\" menu\r\n\t\tJMenu managementMenu = new JMenu(\"Manajemen\");\r\n\r\n\t\t// Create a \"Manage Products\" menu item\r\n\t\tJMenuItem manageProductsMenuItem = new JMenuItem(\"Manajemen Makanan\");\r\n\t\tmanageProductsMenuItem.addActionListener(e -> {\r\n\t\t\t// Add code to open a management window for products\r\n\t\t\t// You can create a new JFrame for product management here\r\n\t\t});\r\n\r\n\t\tmanagementMenu.add(manageProductsMenuItem);\r\n\r\n\t\t// Add the \"File\", \"Chart\" and \"Management\" menus to the menu bar\r\n\t\tmenuBar.add(fileMenu);\r\n\t\tmenuBar.add(chartMenu);\r\n\t\tmenuBar.add(managementMenu);\r\n\r\n\r\n\t\t// Create a table with column names\r\n\t\tString[] columnNames = {\"Nama\", \"Jumlah\", \"Harga\"};\r\n\t\ttableModel = new DefaultTableModel(columnNames, 0);\r\n\t\ttable = new JTable(tableModel);\r\n\r\n\t\t// Create a JScrollPane to hold the table and set its preferred size\r\n\t\tJScrollPane tableScrollPane = new JScrollPane(table);\r\n\t\ttableScrollPane.setPreferredSize(new Dimension(300, 200)); // Adjust the dimensions as needed\r\n\r\n\t\t// Create a panel for menu buttons\r\n\t\tJPanel menuPanel = new JPanel(new GridLayout(0, 2));\r\n\r\n\t\t// Simulate loading products from a service\r\n\t\tList<Product> products = controllerProduct.getAllProducts();\r\n\r\n\t\t// Create a JButton for each product and associate with products\r\n\t\tfor (Product product : products) {\r\n\t\t\tJButton menuItemButton = new JButton(product.getProductName());\r\n\t\t\tmenuItemButton.setFont(new Font(\"Times New Roman\", Font.BOLD, 14));\r\n\t\t\tmenuPanel.add(menuItemButton);\r\n\t\t\tmenuItemToProduct.put(menuItemButton, product);\r\n\r\n\r\n\t\t\tmenuItemButton.addActionListener(e -> {\r\n\t\t\t\t// Retrieve the associated product for the clicked menu item\r\n\t\t\t\tProduct clickedProduct = menuItemToProduct.get(menuItemButton);\r\n\t\t\t\tif (clickedProduct != null) {\r\n\t\t\t\t\t// Show an input dialog to get the quantity\r\n\t\t\t\t\tString qtyInput = JOptionPane.showInputDialog(frame, \"Masukkan jumlah untuk \" + product.getProductName() + \":\", \"Input Jumlah\", JOptionPane.QUESTION_MESSAGE);\r\n\t\t\t\t\t// If the user provides a valid quantity, add a row to the table\r\n\t\t\t\t\tif (qtyInput != null && !qtyInput.isBlank()) {\r\n\t\t\t\t\t\ttry {\r\n\t\t\t\t\t\t\tint quantity = Integer.parseInt(qtyInput);\r\n\t\t\t\t\t\t\tString totalPriceIDR = controllerOrder.converterCurrencyRupiah(product.getPrice() * quantity);\r\n\t\t\t\t\t\t\tObject[] row = {product.getProductName(), quantity, totalPriceIDR};\r\n\t\t\t\t\t\t\tcontrollerOrder.addOrderDetail(product, quantity);\r\n\t\t\t\t\t\t\ttableModel.addRow(row);\r\n\t\t\t\t\t\t} catch (NumberFormatException ex) {\r\n\t\t\t\t\t\t\tJOptionPane.showMessageDialog(frame, \"Input tidak sah.\", \"Error\", JOptionPane.ERROR_MESSAGE);\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} else {\r\n\t\t\t\t\t\tJOptionPane.showMessageDialog(frame, \"Maaf! Pesanan Anda belum lengkap. Silakan masukkan jumlah yang valid.\", \"Pesanan Belum Selesai\", JOptionPane.ERROR_MESSAGE);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\r\n\t\t\t});\r\n\r\n\t\t}\r\n\r\n\t\t// Create a button for payment\r\n\t\tbayarButton = new JButton(\"BAYAR\");\r\n\t\tbayarButton.setForeground(Color.GREEN);\r\n\t\tbayarButton.setFont(new Font(\"Times New Roman\", Font.BOLD, 20));\r\n\t\tbayarButton.addActionListener(e -> {\r\n\t\t\tcontrollerOrder.order();\r\n\t\t});\r\n\r\n\r\n\t\tbatalButton = new JButton(\"BATAL\"); // Modify the text as needed\r\n\t\tbatalButton.setForeground(Color.RED);\r\n\t\tbatalButton.setFont(new Font(\"Times New Roman\", Font.BOLD, 20));\r\n\t\tbatalButton.addActionListener(e -> {\r\n\t\t\tint confirm = JOptionPane.showConfirmDialog(frame, \"Kamu yakin ingin membatalkan semua pesanan?\", \"Konfirmasi\", JOptionPane.YES_NO_OPTION);\r\n\t\t\tif (confirm == JOptionPane.YES_OPTION) {\r\n\t\t\t\t// User confirmed, clear the order\r\n\t\t\t\tcontrollerOrder.clearOrder();\r\n\t\t\t}\r\n\t\t});\r\n\t\ttotalPesanan = new JButton(\"Total: 0\"); // Modify the text as needed\r\n\t\ttotalPesanan.setEnabled(false);\r\n\t\ttotalPesanan.setFont(new Font(\"Times New Roman\", Font.BOLD, 20));\r\n\r\n\t\tJPanel bayarAndTotalPanel = new JPanel(new GridLayout(1, 1));\r\n\t\tbayarAndTotalPanel.add(bayarButton);\r\n\t\tbayarAndTotalPanel.add(batalButton);\r\n\t\tbayarAndTotalPanel.add(totalPesanan);\r\n\r\n\r\n\t\t// Create a panel to hold the table and Bayar/Total buttons\r\n\t\tJPanel tableAndButtonPanel = new JPanel(new BorderLayout());\r\n\t\ttableAndButtonPanel.add(tableScrollPane, BorderLayout.CENTER);\r\n\t\ttableAndButtonPanel.add(bayarAndTotalPanel, BorderLayout.SOUTH);\r\n\r\n\t\t// Add components to the frame using BorderLayout\r\n\t\tframe.add(menuPanel, BorderLayout.WEST);\r\n\t\tframe.add(tableAndButtonPanel, BorderLayout.CENTER);\r\n\r\n\t\tframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n\t\tframe.setSize(1000, 600); // Adjust the frame size as needed\r\n\t\tframe.setJMenuBar(menuBar);\r\n\t\tframe.setVisible(true);\r\n\t}\r\n\r\n\r\n\r\n}\r\n
+===================================================================
+diff --git a/challenge3/src/main/java/org/example/challenge3/view/BinarFudView.java b/challenge3/src/main/java/org/example/challenge3/view/BinarFudView.java
+--- a/challenge3/src/main/java/org/example/challenge3/view/BinarFudView.java	
++++ b/challenge3/src/main/java/org/example/challenge3/view/BinarFudView.java	
+@@ -3,6 +3,8 @@
+ import javax.swing.*;
+ import java.awt.*;
+ import javax.swing.table.DefaultTableModel;
++import java.awt.event.WindowAdapter;
++import java.awt.event.WindowEvent;
+ import java.text.NumberFormat;
+ import java.util.*;
+ import java.util.List;
+@@ -33,7 +35,7 @@
+ 	public BinarFudView() {
+ 		controllerOrder = new ControllerOrder(this);
+ 		controllerProduct = new ControllerProduct(this);
+-		frame = new JFrame("BinarFud");
++		frame = new JFrame("RENYAHHH!");
+ 		menuItemToProduct = new HashMap<>();
+ 		serviceProduct = new ServiceProductImpl();
+ 
+@@ -101,7 +103,11 @@
+ 		// Create a JButton for each product and associate with products
+ 		for (Product product : products) {
+ 			JButton menuItemButton = new JButton(product.getProductName());
+-			menuItemButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
++			JLabel imageLabel = new JLabel(new ImageIcon(Objects.requireNonNull(BinarFudView.class.getResource("/"+product.getImgPath()))));
++			menuItemButton.setFont(new Font("Times New Roman", Font.BOLD, 17));
++			menuItemButton.setLayout(new BorderLayout());
++			menuItemButton.add(imageLabel, BorderLayout.CENTER);
++			menuItemButton.add(new JLabel(product.getProductName(), SwingConstants.CENTER), BorderLayout.SOUTH);
+ 			menuPanel.add(menuItemButton);
+ 			menuItemToProduct.put(menuItemButton, product);
+ 
+@@ -170,7 +176,18 @@
+ 		frame.add(menuPanel, BorderLayout.WEST);
+ 		frame.add(tableAndButtonPanel, BorderLayout.CENTER);
+ 
+-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
++
++		frame.addWindowListener(new WindowAdapter() {
++			@Override
++			public void windowClosing(WindowEvent e) {
++				int confirm = JOptionPane.showConfirmDialog(frame, "Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", JOptionPane.YES_NO_OPTION);
++				if (confirm == JOptionPane.YES_OPTION) {
++					// User confirmed, close the application
++					System.exit(0);
++				}
++			}
++		});
+ 		frame.setSize(1000, 600); // Adjust the frame size as needed
+ 		frame.setJMenuBar(menuBar);
+ 		frame.setVisible(true);
+Index: challenge2/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/challenge2/.idea/misc.xml b/challenge2/.idea/misc.xml
+--- a/challenge2/.idea/misc.xml	
++++ b/challenge2/.idea/misc.xml	
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="MavenProjectsManager">
+Index: challenge3/src/main/java/org/example/challenge3/model/Product.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.challenge3.model;\r\n\r\nimport lombok.*;\r\n\r\nimport java.util.UUID;\r\n\r\n@Getter\r\n@Setter\r\n@AllArgsConstructor\r\n@NoArgsConstructor\r\n@Builder\r\npublic class Product {\r\n\tprivate UUID id;\r\n\tprivate String productName;\r\n\tprivate Double price;\r\n\tprivate UUID merchantId;\r\n\r\n}\r\n
+===================================================================
+diff --git a/challenge3/src/main/java/org/example/challenge3/model/Product.java b/challenge3/src/main/java/org/example/challenge3/model/Product.java
+--- a/challenge3/src/main/java/org/example/challenge3/model/Product.java	
++++ b/challenge3/src/main/java/org/example/challenge3/model/Product.java	
+@@ -14,5 +14,6 @@
+ 	private String productName;
+ 	private Double price;
+ 	private UUID merchantId;
++	private String imgPath;
+ 
+ }
+Index: challenge1/invoice_pembayaran.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>================================================================\r\nBinarFud\r\n================================================================\r\nTerima kasih sudah memesan\r\ndi BinarFud\r\n\r\nDibawah ini pesanan anda\r\n\r\nMie Goreng         3           39000\r\n---------------------------------------------------------------+\r\ntotal              3           39000\r\n\r\nPembayaran : Binar Cash\r\n================================================================\r\nSimpan struk ini sebagai\r\nBukti pembayaran\r\n---------------------------------------------------------------+\r\n
+===================================================================
+diff --git a/challenge1/invoice_pembayaran.txt b/challenge1/invoice_pembayaran.txt
+--- a/challenge1/invoice_pembayaran.txt	
++++ b/challenge1/invoice_pembayaran.txt	
+@@ -6,12 +6,13 @@
+ 
+ Dibawah ini pesanan anda
+ 
+-Mie Goreng         3           39000
++Bakso Urat         2           20000
++Takoyaki           2           10000
+ ---------------------------------------------------------------+
+-total              3           39000
++total              4           30000
+ 
+ Pembayaran : Binar Cash
+ ================================================================
+ Simpan struk ini sebagai
+ Bukti pembayaran
+----------------------------------------------------------------+
++================================================================
+\ No newline at end of file
+Index: challenge3/src/main/java/org/example/challenge3/service/ServiceProductImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.challenge3.service;\r\n\r\nimport org.example.challenge3.model.Product;\r\nimport org.example.challenge3.sql.ConnectionManager;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.ResultSet;\r\nimport java.sql.SQLException;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.UUID;\r\n\r\npublic class ServiceProductImpl implements ServiceProduct{\r\n\t@Override\r\n\tpublic List<Product> findAll() {\r\n\t\tString query = \"SELECT id, product_name, price, merchant_id FROM public.products\";\r\n\t\tList<Product> products = new ArrayList<>();\r\n\r\n\t\ttry (Connection connection = ConnectionManager.getConnection(\"binarfud\");\r\n\t\t     PreparedStatement preparedStatement = connection.prepareStatement(query);\r\n\t\t     ResultSet resultSet = preparedStatement.executeQuery()) {\r\n\t\t\twhile (resultSet.next()) {\r\n\t\t\t\tUUID id = UUID.fromString(resultSet.getString(\"id\"));\r\n\t\t\t\tString productName = resultSet.getString(\"product_name\");\r\n\t\t\t\tdouble price = resultSet.getDouble(\"price\");\r\n\t\t\t\tUUID merchantId = UUID.fromString(resultSet.getString(\"merchant_id\"));\r\n\r\n\t\t\t\tProduct product = new Product(id, productName, price, merchantId);\r\n\t\t\t\tproducts.add(product);\r\n\t\t\t}\r\n\t\t} catch (SQLException e) {\r\n\t\t\tthrow new RuntimeException(\"Failed to retrieve products from the database.\", e);\r\n\t\t}\r\n\t\treturn products;\r\n\t}\r\n\r\n}\r\n
+===================================================================
+diff --git a/challenge3/src/main/java/org/example/challenge3/service/ServiceProductImpl.java b/challenge3/src/main/java/org/example/challenge3/service/ServiceProductImpl.java
+--- a/challenge3/src/main/java/org/example/challenge3/service/ServiceProductImpl.java	
++++ b/challenge3/src/main/java/org/example/challenge3/service/ServiceProductImpl.java	
+@@ -14,7 +14,8 @@
+ public class ServiceProductImpl implements ServiceProduct{
+ 	@Override
+ 	public List<Product> findAll() {
+-		String query = "SELECT id, product_name, price, merchant_id FROM public.products";
++		String query = "SELECT id, product_name, price, merchant_id, img_path\n" +
++				"\tFROM public.products;";
+ 		List<Product> products = new ArrayList<>();
+ 
+ 		try (Connection connection = ConnectionManager.getConnection("binarfud");
+@@ -25,8 +26,8 @@
+ 				String productName = resultSet.getString("product_name");
+ 				double price = resultSet.getDouble("price");
+ 				UUID merchantId = UUID.fromString(resultSet.getString("merchant_id"));
+-
+-				Product product = new Product(id, productName, price, merchantId);
++				String path = resultSet.getString("img_path");
++				Product product = new Product(id, productName, price, merchantId, path);
+ 				products.add(product);
+ 			}
+ 		} catch (SQLException e) {
+Index: challenge3/src/main/java/org/example/challenge3/controller/ControllerOrder.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.challenge3.controller;\r\n\r\nimport lombok.extern.java.Log;\r\nimport org.example.challenge3.model.Order;\r\nimport org.example.challenge3.model.OrderDetail;\r\nimport org.example.challenge3.model.Product;\r\nimport org.example.challenge3.service.ServiceOrder;\r\nimport org.example.challenge3.service.ServiceOrderImpl;\r\nimport org.example.challenge3.service.ServiceProduct;\r\nimport org.example.challenge3.service.ServiceProductImpl;\r\nimport org.example.challenge3.sql.InfoUser;\r\nimport org.example.challenge3.view.BinarFudView;\r\n\r\nimport javax.swing.*;\r\nimport java.text.NumberFormat;\r\nimport java.time.LocalDate;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Locale;\r\nimport java.util.UUID;\r\nimport java.util.logging.Logger;\r\n\r\npublic class ControllerOrder {\r\n\r\n\tBinarFudView binarFudView;\r\n\tServiceOrder serviceOrder;\r\n\tList<OrderDetail> listOrderDetail;\r\n\r\n\r\n\tpublic ControllerOrder(BinarFudView binarFudView) {\r\n\t\tthis.binarFudView = binarFudView;\r\n\t\tthis.serviceOrder = new ServiceOrderImpl();\r\n\t\tthis.listOrderDetail = new ArrayList<>();\r\n\t}\r\n\r\n\tpublic void order() {\r\n\t\ttry {\r\n\t\t\tUUID orderId = UUID.randomUUID();\r\n\t\t\tOrder order = Order.builder().id(orderId).userId(InfoUser.USER_ID).orderTime(LocalDate.now()).destinationAdress(InfoUser.DESTINATION).isComplete(true).build();\r\n\t\t\tserviceOrder.createOrder(order);\r\n\r\n//\t\tset orderID of each orderDetail\r\n\t\t\tfor (OrderDetail orderDetail : listOrderDetail) {\r\n\t\t\t\torderDetail.setOrderId(orderId);\r\n\t\t\t\tserviceOrder.createOrderDetail(orderDetail);\r\n\t\t\t}\r\n\t\t\tSystem.out.print(\"Order created Succesfully\");\r\n\t\t} catch (Exception e) {\r\n\t\t\tSystem.out.print(\"Order created is not Succesfully: \" + e);\r\n\t\t}\r\n\t}\r\n\r\n\r\n\tpublic void addOrderDetail(Product product, int quantity) {\r\n\t\tDouble totalPrice = product.getPrice() * quantity;\r\n\t\tlistOrderDetail.add(OrderDetail.builder().id(UUID.randomUUID()).productId(product.getId()).quantity(quantity).totalPrice(totalPrice).build());\r\n\t\tupdateTotalPrice();\r\n\t}\r\n\r\n\tpublic void updateTotalPrice() {\r\n\t\tif (!listOrderDetail.isEmpty()) {\r\n\t\t\tdouble totalOrderPrice = listOrderDetail.stream().mapToDouble(OrderDetail::getTotalPrice).sum();\r\n\t\t\tbinarFudView.getTotalPesanan().setText(\"Total: \" + converterCurrencyRupiah(totalOrderPrice));\r\n\t\t}\r\n\t}\r\n\r\n\tpublic void clearOrder(){\r\n\t\tbinarFudView.getTableModel().setRowCount(0);\r\n\t\tbinarFudView.getTotalPesanan().setText(\"Total: \" + 0);\r\n\t\tlistOrderDetail.clear();\r\n\t}\r\n\r\n\tpublic String converterCurrencyRupiah(double value) {\r\n\t\t// Create a NumberFormat instance for Indonesian currency format\r\n\t\tNumberFormat rupiahFormat = NumberFormat.getCurrencyInstance(new Locale(\"id\", \"ID\"));\r\n\r\n\t\t// Format the value as Indonesian Rupiah\r\n\t\treturn rupiahFormat.format(value);\r\n\t}\r\n}\r\n
+===================================================================
+diff --git a/challenge3/src/main/java/org/example/challenge3/controller/ControllerOrder.java b/challenge3/src/main/java/org/example/challenge3/controller/ControllerOrder.java
+--- a/challenge3/src/main/java/org/example/challenge3/controller/ControllerOrder.java	
++++ b/challenge3/src/main/java/org/example/challenge3/controller/ControllerOrder.java	
+@@ -44,7 +44,9 @@
+ 				orderDetail.setOrderId(orderId);
+ 				serviceOrder.createOrderDetail(orderDetail);
+ 			}
++			JOptionPane.showMessageDialog(null, "Pembayaran selesai.", "Pembayaran Selesai", JOptionPane.INFORMATION_MESSAGE);
+ 			System.out.print("Order created Succesfully");
++			clearOrder();
+ 		} catch (Exception e) {
+ 			System.out.print("Order created is not Succesfully: " + e);
+ 		}
+Index: challenge1/src/main/java/org/example/challenge1/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.challenge1;\r\n\r\nimport java.io.*;\r\nimport java.text.DecimalFormat;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Scanner;\r\n\r\n\r\n\r\npublic class Main {\r\n//    List untuk menuMakanan\r\n    static final String line1 = \"================================================================\";\r\n    static final String line2 = \"---------------------------------------------------------------+\\n\";\r\n    static final String inputArrow = \"\\n=> \";\r\n    static final String formatPesanan = \"%-14s %5d %15s\\n\";\r\n\r\n    static final Scanner scan = new Scanner(System.in);\r\n    static final List<MenuMakanan> menuMakanan = List.of(\r\n                new MenuMakanan(1,\"Nasi Goreng\", 15000),\r\n                new MenuMakanan(2,\"Mie Goreng\", 13000),\r\n                new MenuMakanan(3,\"Nasi + Ayam\", 18000),\r\n                new MenuMakanan(4,\"Es Teh Manis\", 3000),\r\n                new MenuMakanan(5,\"Es Jeruk\", 5000));\r\n    static List<Pesanan> menuPesanan = new ArrayList<>();\r\n\r\n    public static void main(String[] args) {\r\n\r\n    }\r\n\r\n    private static void menuUtamaTampilan() {\r\n//        Buat tampilan cli yang akan di ulang hingga selama user tidak memilih keluar dari aplikasi dan tidak menyelesaikan pembayaran\r\n//        karna switch 1 sd 5 adalah fitur memesan makanan, jadi saya buat satu scope\r\n//        ketika user memilih keluar dari aplikasi maka loop akan berhenti dan program akan keluar\r\n        while (true) {\r\n            System.out.println(line1);\r\n            System.out.println(\"Selamat datang di BinarFud\");\r\n            System.out.println(line1);\r\n            System.out.println(\"\\nSilahkan pilih makanan :\");\r\n            for (MenuMakanan makanan : menuMakanan) {\r\n                System.out.printf(\"%d. %-20s | %s \\n\", makanan.id(), makanan.nama(), rupiahKonversi(makanan.harga()));\r\n            }\r\n            System.out.println(\"99. Pesan dan Bayar\");\r\n            System.out.println(\"0. Keluar aplikasi\");\r\n            System.out.print(inputArrow);\r\n            if (scan.hasNextByte()){\r\n                byte pilihan = scan.nextByte();\r\n                switch (pilihan) {\r\n                    case 1, 2, 3, 4, 5 -> konfirmasiPesananTampilan(pilihan);\r\n                    case 99 -> pembayaranTampilan();\r\n                    case 0 ->\r\n                            System.exit(0);\r\n                    default -> System.out.println(\"Tolong input dengan benar\");\r\n                }\r\n            } else {\r\n                System.out.println(\"Tolong input dengan benar\");            }\r\n        }\r\n    }\r\n\r\n    private static void pembayaranTampilan() {\r\n        System.out.println(line1);\r\n        System.out.println(\"Konfirmasi & Pembayaran\");\r\n        System.out.println(line1);\r\n        int jumlahTotal = 0;\r\n        long jumlahHarga = 0;\r\n        for (Pesanan objek: menuPesanan) {\r\n            System.out.printf(formatPesanan, objek.nama(), objek.jumlah(), rupiahKonversi(objek.harga()));\r\n            jumlahTotal += objek.jumlah();\r\n            jumlahHarga += objek.harga();\r\n        }\r\n        System.out.println(line2);\r\n        System.out.printf(formatPesanan, \"total\", jumlahTotal, rupiahKonversi(jumlahHarga));\r\n        System.out.println(\"1. Konfirmasi dan Bayar\");\r\n        System.out.println(\"2. Kembali ke Menu Utama\");\r\n        System.out.println(\"0. Keluar Aplikasi\");\r\n        System.out.print(\"\\n=> \");\r\n        byte pilihan = new Scanner(System.in).nextByte();\r\n        switch (pilihan) {\r\n            case 1 -> cetakInvoice(jumlahTotal, jumlahHarga);\r\n            case 2 -> System.out.println(\"Kembali ke menu Utama\");\r\n            case 0 -> System.exit(0);\r\n            default -> System.out.println(\"Tolong input dengan benar\");\r\n        }\r\n    }\r\n\r\n\r\n    public static void cetakInvoice(int jumlahTotal, long jumlahHarga) {\r\n        try (BufferedWriter writer = new BufferedWriter(new FileWriter(\"invoice_pembayaran.txt\"))) {\r\n            writer.write(line1);\r\n            writer.write(\"\\nBinarFud\\n\");\r\n            writer.write(line1);\r\n            writer.write(\"\\nTerima kasih sudah memesan\\ndi BinarFud\");\r\n            writer.write(\"\\n\\nDibawah ini pesanan anda\\n\\n\");\r\n            for (Pesanan objek : menuPesanan) {\r\n                writer.write(String.format(\"%-14s %5d %15s\\n\", objek.nama(), objek.jumlah(), rupiahKonversi(objek.harga())));\r\n            }\r\n            writer.write(line2);\r\n            writer.write(String.format(\"%-14s %5d %15s\\n\\n\", \"total\", jumlahTotal, rupiahKonversi(jumlahHarga)));\r\n            writer.write(\"Pembayaran : Binar Cash\\n\");\r\n            writer.write(line1);\r\n            writer.write(\"\\nSimpan struk ini sebagai\\n\");\r\n            writer.write(\"Bukti pembayaran\\n\");\r\n            writer.write(line1);\r\n        } catch (IOException exception) {\r\n            exception.printStackTrace();\r\n        }\r\n    }\r\n\r\n        public static void konfirmasiPesananTampilan(byte pilihan){\r\n            System.out.println(line1);\r\n            System.out.println(\"Berapa pesanan anda\");\r\n            System.out.println(line1);\r\n            System.out.println(\" \" + menuMakanan.get(pilihan - 1).nama() + \"  |  \" + menuMakanan.get(pilihan - 1));\r\n            System.out.println(\"Input 0 untuk kembali\");\r\n            System.out.print(\"\\nqty => \");\r\n            String nama = menuMakanan.get(pilihan - 1).nama();\r\n            byte jumlah = new Scanner(System.in).nextByte();\r\n            long harga = menuMakanan.get(pilihan - 1).harga() * jumlah;\r\n            for (Pesanan pesanan1 : menuPesanan) {\r\n                if (pesanan1.nama().equalsIgnoreCase(nama)) {\r\n                    jumlah += pesanan1.jumlah();\r\n                    harga += pesanan1.harga();\r\n                    menuPesanan.remove(pesanan1);\r\n                    break;\r\n                }\r\n            }\r\n//        lalu data akan ditambahkan ulang, untuk mencegah duplikasi menu pada listPesanan\r\n            menuPesanan.add(new Pesanan(nama, jumlah, harga));\r\n        }\r\n\r\n\r\n    public static String rupiahKonversi(long harga){\r\n        DecimalFormat pattern = new DecimalFormat(\"#.###\");\r\n        return pattern.format(harga);\r\n    }\r\n}
+===================================================================
+diff --git a/challenge1/src/main/java/org/example/challenge1/Main.java b/challenge1/src/main/java/org/example/challenge1/Main.java
+--- a/challenge1/src/main/java/org/example/challenge1/Main.java	
++++ b/challenge1/src/main/java/org/example/challenge1/Main.java	
+@@ -17,15 +17,15 @@
+ 
+     static final Scanner scan = new Scanner(System.in);
+     static final List<MenuMakanan> menuMakanan = List.of(
+-                new MenuMakanan(1,"Nasi Goreng", 15000),
+-                new MenuMakanan(2,"Mie Goreng", 13000),
+-                new MenuMakanan(3,"Nasi + Ayam", 18000),
+-                new MenuMakanan(4,"Es Teh Manis", 3000),
+-                new MenuMakanan(5,"Es Jeruk", 5000));
++                new MenuMakanan(1,"Bakso Urat", 10000),
++                new MenuMakanan(2,"Takoyaki", 5000),
++                new MenuMakanan(3,"Mie Sakura Goreng", 6000),
++                new MenuMakanan(4,"Teajus", 2000),
++                new MenuMakanan(5,"Teh Sisri Gula Batu", 2000));
+     static List<Pesanan> menuPesanan = new ArrayList<>();
+ 
+     public static void main(String[] args) {
+-
++        menuUtamaTampilan();
+     }
+ 
+     private static void menuUtamaTampilan() {
+@@ -33,21 +33,26 @@
+ //        karna switch 1 sd 5 adalah fitur memesan makanan, jadi saya buat satu scope
+ //        ketika user memilih keluar dari aplikasi maka loop akan berhenti dan program akan keluar
+         while (true) {
+-            System.out.println(line1);
+-            System.out.println("Selamat datang di BinarFud");
++            System.out.println("\n" +
++                    " ____  __.              __  .__            _____                 \n" +
++                    "|    |/ _|____    _____/  |_|__| ____     /  _  \\ ______ ______  \n" +
++                    "|      < \\__  \\  /    \\   __\\  |/    \\   /  /_\\  \\\\____ \\\\____ \\ \n" +
++                    "|    |  \\ / __ \\|   |  \\  | |  |   |  \\ /    |    \\  |_> >  |_> >\n" +
++                    "|____|__ (____  /___|  /__| |__|___|  / \\____|__  /   __/|   __/ \n" +
++                    "        \\/    \\/     \\/             \\/          \\/|__|   |__|    \n");
+             System.out.println(line1);
+             System.out.println("\nSilahkan pilih makanan :");
+             for (MenuMakanan makanan : menuMakanan) {
+                 System.out.printf("%d. %-20s | %s \n", makanan.id(), makanan.nama(), rupiahKonversi(makanan.harga()));
+             }
+-            System.out.println("99. Pesan dan Bayar");
++            System.out.println("100. Pesan dan Bayar");
+             System.out.println("0. Keluar aplikasi");
+             System.out.print(inputArrow);
+             if (scan.hasNextByte()){
+                 byte pilihan = scan.nextByte();
+                 switch (pilihan) {
+                     case 1, 2, 3, 4, 5 -> konfirmasiPesananTampilan(pilihan);
+-                    case 99 -> pembayaranTampilan();
++                    case 100 -> pembayaranTampilan();
+                     case 0 ->
+                             System.exit(0);
+                     default -> System.out.println("Tolong input dengan benar");
+@@ -110,8 +115,8 @@
+             System.out.println(line1);
+             System.out.println("Berapa pesanan anda");
+             System.out.println(line1);
+-            System.out.println(" " + menuMakanan.get(pilihan - 1).nama() + "  |  " + menuMakanan.get(pilihan - 1));
+-            System.out.println("Input 0 untuk kembali");
++            System.out.println(" " + menuMakanan.get(pilihan - 1).nama() + "  |  " + menuMakanan.get(pilihan - 1).harga());
++            System.out.println("x/0 untuk kembali");
+             System.out.print("\nqty => ");
+             String nama = menuMakanan.get(pilihan - 1).nama();
+             byte jumlah = new Scanner(System.in).nextByte();
+Index: challenge3/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/challenge3/.idea/misc.xml b/challenge3/.idea/misc.xml
+--- a/challenge3/.idea/misc.xml	
++++ b/challenge3/.idea/misc.xml	
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="MavenProjectsManager">
+Index: challenge1/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/challenge1/.idea/misc.xml b/challenge1/.idea/misc.xml
+--- a/challenge1/.idea/misc.xml	
++++ b/challenge1/.idea/misc.xml	
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="MavenProjectsManager">
