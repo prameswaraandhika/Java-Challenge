@@ -34,13 +34,13 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         auth -> {
                         auth
-                                .requestMatchers(HttpMethod.POST,"/restapi/merchant/**").hasRole("ROLE_MERCHANT")
-                                .requestMatchers(HttpMethod.PUT,"/restapi/merchant/**").hasRole("ROLE_MERCHANT")
-                                .requestMatchers(HttpMethod.DELETE,"/restapi/merchant/**").hasRole("ROLE_MERCHANT")
-                                .requestMatchers(HttpMethod.DELETE,"/restapi/merchant/**").hasRole("ROLE_MERCHANT")
-                                .requestMatchers(HttpMethod.PUT,"/restapi/users/{id}").hasRole("ROLE_CUSTOMER")
-                                .requestMatchers(HttpMethod.DELETE,"/restapi/users/{id}").hasRole("ROLE_CUSTOMER")
-                                .requestMatchers(HttpMethod.DELETE,"/restapi/users/{id}").hasRole("ROLE_CUSTOMER")
+                                .requestMatchers(HttpMethod.POST,"/restapi/merchant/**").hasRole("MERCHANT")
+                                .requestMatchers(HttpMethod.PUT,"/restapi/merchant/**").hasRole("MERCHANT")
+                                .requestMatchers(HttpMethod.DELETE,"/restapi/merchant/**").hasRole("MERCHANT")
+                                .requestMatchers(HttpMethod.DELETE,"/restapi/merchant/**").hasRole("MERCHANT")
+                                .requestMatchers(HttpMethod.PUT,"/restapi/users/{id}").hasRole("CUSTOMER")
+                                .requestMatchers(HttpMethod.DELETE,"/restapi/users/{id}").hasRole("CUSTOMER")
+                                .requestMatchers(HttpMethod.DELETE,"/restapi/users/{id}").hasRole("CUSTOMER")
                                 .requestMatchers(HttpMethod.GET,"/restapi/merchant/all").permitAll()
                                 .anyRequest().permitAll();
                         })

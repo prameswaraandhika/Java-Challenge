@@ -5,28 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce29122d-57f9-4e0b-ac36-54eb225684e6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/challenge1/src/main/resources/es-jeruk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge1/src/main/resources/es-tehmanis.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge1/src/main/resources/mie-goreng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge1/src/main/resources/nasi-ayam-bakarmadu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge1/src/main/resources/nasi-ayam-goreng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge1/src/main/resources/nasi-goreng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge2/src/main/resources/es-jeruk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge2/src/main/resources/es-tehmanis.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge2/src/main/resources/mie-goreng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge2/src/main/resources/nasi-ayam-bakarmadu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge2/src/main/resources/nasi-ayam-goreng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge2/src/main/resources/nasi-goreng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge3/src/main/resources/es-jeruk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge3/src/main/resources/es-tehmanis.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge3/src/main/resources/mie-goreng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge3/src/main/resources/nasi-ayam-bakarmadu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge3/src/main/resources/nasi-ayam-goreng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/challenge3/src/main/resources/nasi-goreng.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge6/app/scheduler/PromotionScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_24_2023_5_16_PM_[Changes]1/es-jeruk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_24_2023_5_16_PM_[Changes]1/es-tehmanis.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_24_2023_5_16_PM_[Changes]1/mie-goreng.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_24_2023_5_16_PM_[Changes]1/nasi-ayam-bakarmadu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_24_2023_5_16_PM_[Changes]1/nasi-ayam-goreng.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_24_2023_5_16_PM_[Changes]1/nasi-goreng.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_24_2023_5_16_PM_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_24_2023_5_16_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_24_2023_5_16_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_24_2023_5_16_PM__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge1" beforeDir="false" afterPath="$PROJECT_DIR$/challenge1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge2" beforeDir="false" afterPath="$PROJECT_DIR$/challenge2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/challenge3" beforeDir="false" afterPath="$PROJECT_DIR$/challenge3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge6/app/Challenge6Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge6/app/Challenge6Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge6/app/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge6/app/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge6/app/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge6/app/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge6/app/model/AuthRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/challenge6/src/main/java/com/challenge6/app/model/dtos/AuthRequestDto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,14 +44,29 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;jwtauth&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/intelij-java-project/BinarFud/challenge6&quot;
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/intelij-java-project/Synrgy-Backend/challenge6&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\user\Desktop\intelij-java-project\BinarFud" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Synrgy-Backend" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Synrgy-Backend" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

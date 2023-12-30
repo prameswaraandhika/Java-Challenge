@@ -1,0 +1,31 @@
+server:
+  port: 8085
+eureka:
+  instance:
+    hostname: localhost
+spring:
+  application:
+    name: NOTIFICATION-EMAIL-SERVICE
+  config:
+    import: configserver:http://localhost:9296
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-97072289.okta.com/oauth2/default
+      client:
+        registration:
+          internal-client:
+            provider: okta
+            authorization-grant-type: client_credentials
+            scope: internal
+            client-id: 0oae3hl9uhbK7e7KE5d7
+            client-secret: qXGWtgpJi1w_EKxK09XG7aZhPUciBYZl3-4xuuEeXClN7yXjmIln8TmvFrJKL16n
+        provider:
+          okta:
+            issuer-uri: https://dev-97072289.okta.com/oauth2/default
+#  jackson:
+#    serialization:
+#      write-dates-as-timestamps: false
+#    deserialization:
+#      read-date-timestamps-as-nanoseconds: false

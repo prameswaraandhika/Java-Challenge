@@ -1,0 +1,36 @@
+server:
+  port: 9091
+eureka:
+  instance:
+    hostname: localhost
+spring:
+  application:
+    name: API-GATEWAY
+  config:
+    import: configserver:http://localhost:9296
+  cloud:
+    gateway:
+      routes:
+        - id : ORDER-SERVICE
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order/**
+        - id : PRODUCT-SERVICE
+          uri: lb://PRODUCT-SERVICE
+          predicates:
+            - Path=/product/**
+        - id: MERCHANT-SERVICE
+          uri: lb://MERCHANT-SERVICE
+          predicates:
+            - Path=/merchant/**
+        - id: NOTIFICATION-EMAIL-SERVICE
+          uri: lb://NOTIFICATION-EMAIL-SERVICE
+          predicates:
+            - Path=/mail/**
+okta:
+  oauth2:
+    issuer: https://dev-97072289.okta.com/oauth2/default
+    audience: api://default
+    client-id: 0oae3hl9uhbK7e7KE5d7
+    client-secret: qXGWtgpJi1w_EKxK09XG7aZhPUciBYZl3-4xuuEeXClN7yXjmIln8TmvFrJKL16n
+    scopes: openid, email, profile, offline_access

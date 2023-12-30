@@ -1,10 +1,8 @@
 package com.challenge6.app.controller;
 
-import com.challenge6.app.model.AuthRequestDto;
+import com.challenge6.app.model.dtos.AuthRequestDto;
 import com.challenge6.app.model.User;
-import com.challenge6.app.model.dtos.UserNewDto;
 import com.challenge6.app.model.dtos.UserUpdatePasswordDto;
-import com.challenge6.app.service.AuthService;
 import com.challenge6.app.service.JwtService;
 import com.challenge6.app.service.UserService;
 import lombok.RequiredArgsConstructor;
