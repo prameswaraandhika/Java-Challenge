@@ -37,4 +37,11 @@ public class MerchantServiceImpl implements MerchantService{
     public List<Merchant> getOpenMerchants() {
         return merchanRepository.findByIsOpen(true);
     }
+
+    @Override
+    public void deleteById(UUID uuid) {
+        merchanRepository.deleteById(uuid);
+    }
+
+
 }

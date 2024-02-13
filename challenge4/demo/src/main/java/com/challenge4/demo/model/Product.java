@@ -16,8 +16,8 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
-	private String productName;
-	private Double price;
+	private String name;
+	private Long price;
 
 
 	@ManyToOne(targetEntity = Merchant.class)
@@ -25,5 +25,10 @@ public class Product {
 	private Merchant merchant;
 
 
-
+	@Override
+	public String toString() {
+		return
+				"name='" + name + '\'' +
+				", price=" + price;
+	}
 }

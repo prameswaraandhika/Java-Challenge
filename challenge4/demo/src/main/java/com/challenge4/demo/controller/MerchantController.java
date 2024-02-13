@@ -29,4 +29,9 @@ public class MerchantController {
         merchantService.updateMerchantStatus(uuid, status);
     }
 
+    public void delete(UUID uuid){
+        merchantService.deleteById(uuid);
+    }
+
+
 }

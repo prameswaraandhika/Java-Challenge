@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.UUID;
 
 public class MerchantView {
-    public static void showTableMerchantOpen(List<Merchant> merchants){
+    public static void showTableMerchant(List<Merchant> merchants){
         int i = 1;
         for (Merchant merchant:
              merchants) {
@@ -18,7 +18,7 @@ public class MerchantView {
     public static void menuMerchant(){
         System.out.println("Pilih merchant");
         System.out.println("1. Create Merchant");
-        System.out.println("2. Uodate Merchant");
+        System.out.println("2. Update Merchant");
         System.out.println("3. Delete Merchant");
     }
 
@@ -63,7 +63,15 @@ public class MerchantView {
         boolean isOpen = scanner.nextBoolean();
         scanner.nextLine();  // Consume newline left-over
         merchant.setOpen(isOpen);
-
         return merchant;
     }
+
+    public static UUID formDeleteMerchant() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter ID Merchant:");
+        String idMerchantStr = scanner.nextLine();
+        return UUID.fromString(idMerchantStr);
+    }
+
 }

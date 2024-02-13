@@ -14,5 +14,5 @@ public interface OrderService {
 
 	 Order getOrderByUserId(UUID userId);
 
-	OrderDetail getOrderDetailById(UUID orderDetailID);
+	 OrderDetail getOrderDetailById(UUID orderDetailID);
 }

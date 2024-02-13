@@ -18,4 +18,7 @@ public interface MerchantService {
 
     // Menampilkan daftar merchant yang sedang buka
     List<Merchant> getOpenMerchants();
+
+
+    void deleteById(UUID uuid);
 }

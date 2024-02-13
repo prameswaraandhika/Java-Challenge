@@ -28,6 +28,6 @@ public class OrderDetail {
 	private Product product;
 
 	private Integer quantity;
-	private Double totalPrice;
+	private long totalPrice;
 
 }
